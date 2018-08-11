@@ -28,7 +28,21 @@ public class GameManager :
     /***  PROPERTY              ************************/
     /***************************************************/
 
+    public List<GameObject> Enemies
+    {
+        get
+        {
+            return m_enemies;
+        }
+    }
 
+    public static GameManager Inst
+    {
+        get
+        {
+            return m_instance;
+        }
+    }
 
     #endregion
     #region Constants
@@ -44,9 +58,13 @@ public class GameManager :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
+    private static GameManager m_instance = null;
+    
     private int m_round = -1;
     private float m_nextRoundIn = 0;
-    
+
+    private List<GameObject> m_enemies = new List<GameObject>();
+
     #endregion
     #region Methods
     /***************************************************/
@@ -58,14 +76,18 @@ public class GameManager :
     // Use this for initialization
     private void Start()
     {
-        
+        m_instance = this;
     }
 
     // Update is called once per frame
     private void Update()
     {
-        m_nextRoundIn -= Time.deltaTime;
+        // update ennmies list
+        m_enemies.Clear();
+        m_enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 
+        // manage round
+        m_nextRoundIn -= Time.deltaTime;
         if (m_nextRoundIn <= 0)
             NextRound();
     }
