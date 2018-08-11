@@ -47,7 +47,8 @@ public class CameraControl : MonoBehaviour {
         transform.Rotate(pitch * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.y)));
         //Yaw
         Vector3 yaw = new Vector3(0, mousePos.normalized.x, 0);
-        transform.Rotate(yaw * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.x)), Space.World);
+        if (transform )
+        transform.Rotate(yaw * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.x)));
 
         //Roll
         if (Input.GetAxis("Roll") < 0)
