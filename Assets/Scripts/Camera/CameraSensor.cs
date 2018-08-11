@@ -72,7 +72,7 @@ public class CameraSensor : MonoBehaviour
 
         if(PreviousFaceHit)
         {
-            ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit;
+            ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit.transform.parent.gameObject;
         }
     }
     /********  OUR MESSAGES     ************************/
