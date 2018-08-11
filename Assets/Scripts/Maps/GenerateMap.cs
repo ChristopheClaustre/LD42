@@ -60,10 +60,8 @@ public class GenerateMap :
     // Use this for initialization
     private void Start()
     {
-        List<Vector3> used = new List<Vector3>
-        {
-            m_prefabParent.position
-        };
+        List<Vector3> used = new List<Vector3>();
+        used.Add(m_prefabParent.position);
 
         for (int i = 0; i < SettingsManager.Inst.m_initialPlateformCount; i++)
         {
@@ -89,7 +87,7 @@ public class GenerateMap :
     private Vector3 GenerateCoordinates()
     {
         return new Vector3(
-            Random.Range(0, SettingsManager.Inst.m_rayonSphere), // rho
+            Random.Range(SettingsManager.Inst.m_rayonCore, SettingsManager.Inst.m_rayonSphere), // rho
             Random.Range(-180.0f, 180.0f), // phi
             Random.Range(-90.0f, 90)  // theta
             );
