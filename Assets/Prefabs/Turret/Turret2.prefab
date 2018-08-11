@@ -308,8 +308,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa0da24db5c064bbd128b16ec29dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_canon: {fileID: 1145723159960248}
   m_cooldownBar: {fileID: 114867160951268996}
+  m_canon: {fileID: 1145723159960248}
 --- !u!114 &114511685109454448
 MonoBehaviour:
   m_ObjectHideFlags: 1
