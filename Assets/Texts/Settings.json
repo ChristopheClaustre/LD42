@@ -2,4 +2,6 @@
     "m_rayonSphere": 15,
     "m_initialPlateformCount": 300,
     "m_minimalDistanceBetweenPlateform": 3
+    "m_playerSpeed": 10.0,
+    "m_playerAngularSpeed": 100.0
 }

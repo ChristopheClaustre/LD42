@@ -14,11 +14,9 @@ public class CameraControl : MonoBehaviour {
     /***************************************************/
     /***  ATTRIBUTES            ************************/
     /***************************************************/
-    
-    [Range(0.0f,100.0f)]
-    public float m_mainSpeed = 10.0f; //regular speed
-    [Range(0.0f, 1000.0f)]
-    public float m_camSens = 100f; //How sensitive it with mouse
+
+    public float m_mainSpeed;
+    public float m_camSens;
     [Range(0.0f, 1.0f)]
     public float m_radius = 0.05f;
 
@@ -29,7 +27,14 @@ public class CameraControl : MonoBehaviour {
     /***************************************************/
 
     /********  UNITY MESSAGES   ************************/
-    void Update()
+
+    private void Start()
+    {
+        m_mainSpeed = SettingsManager.Inst.m_playerSpeed;
+        m_camSens = SettingsManager.Inst.m_playerAngularSpeed;
+    }
+
+    private void Update()
     {
         Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
         mousePos.x -= 0.5f;
@@ -61,7 +66,6 @@ public class CameraControl : MonoBehaviour {
         }
 
         //Keyboard commands
-        float f = 0.0f;
         Vector3 p = GetBaseInput();
         p = p * m_mainSpeed;
         p = p * Time.deltaTime;

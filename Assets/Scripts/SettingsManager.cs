@@ -23,6 +23,8 @@ public class SettingsManager :
         public float m_rayonSphere;
         public int m_initialPlateformCount;
         public float m_minimalDistanceBetweenPlateform;
+        public float m_playerSpeed;
+        public float m_playerAngularSpeed;
     }
 
     #endregion
