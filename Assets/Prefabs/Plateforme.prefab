@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 33725436205499548}
   - component: {fileID: 23391103776773326}
   - component: {fileID: 64106190943218754}
+  - component: {fileID: 114519861370023278}
   m_Layer: 8
   m_Name: DownFace
   m_TagString: PlatformeFace
@@ -40,38 +41,9 @@ GameObject:
   - component: {fileID: 33590214279120244}
   - component: {fileID: 23874831642932002}
   - component: {fileID: 64455189956093806}
+  - component: {fileID: 114012351412864806}
   m_Layer: 8
   m_Name: UpFace
-  m_TagString: PlatformeFace
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1677468847795672
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4442705185538894}
-  m_Layer: 2
-  m_Name: TowerPlaceHolder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1906176171602640
-GameObject:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4584561809536648}
-  m_Layer: 2
-  m_Name: TowerPlaceHolder
   m_TagString: PlatformeFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,40 +73,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1281281109305444}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 0.12565, z: 1}
-  m_Children:
-  - {fileID: 4442705185538894}
+  m_Children: []
   m_Father: {fileID: 4999357982498594}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4442705185538894
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1677468847795672}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4296822955357780}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4584561809536648
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1906176171602640}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4993427284125606}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: 0, z: 0}
 --- !u!4 &4993427284125606
 Transform:
   m_ObjectHideFlags: 1
@@ -144,8 +89,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 0.12565, z: 1}
-  m_Children:
-  - {fileID: 4584561809536648}
+  m_Children: []
   m_Father: {fileID: 4999357982498594}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -318,6 +262,30 @@ MeshCollider:
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &114012351412864806
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1368546914522880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc57f95725583a4a8f7f54d5552847c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TowerPH: {fileID: 1852223667023824, guid: a5d4e0413369c5d4fb931390b2737d0e, type: 2}
+--- !u!114 &114519861370023278
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1281281109305444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edc57f95725583a4a8f7f54d5552847c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TowerPH: {fileID: 1852223667023824, guid: a5d4e0413369c5d4fb931390b2737d0e, type: 2}
 --- !u!136 &136487288891437410
 CapsuleCollider:
   m_ObjectHideFlags: 1

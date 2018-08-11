@@ -38,10 +38,9 @@ public class CameraSensor : MonoBehaviour
         int layerMask = LayerMask.GetMask("PlatformeFace", "Default");
 
         Debug.DrawRay(transform.position, ray.direction, Color.red);
-        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) )
+        if (Physics.Raycast(ray, out hit, 2.0f, layerMask) )
         {
             Transform objectHit = hit.transform;
-            Debug.Log(objectHit.gameObject);
             if (objectHit.gameObject.tag == "PlatformeFace")
             {
                 if (PreviousFaceHit != objectHit.gameObject)
@@ -69,6 +68,11 @@ public class CameraSensor : MonoBehaviour
                 PreviousFaceHit.layer = 8;
                 PreviousFaceHit = null;
             }
+        }
+
+        if(PreviousFaceHit)
+        {
+            ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit;
         }
     }
     /********  OUR MESSAGES     ************************/
