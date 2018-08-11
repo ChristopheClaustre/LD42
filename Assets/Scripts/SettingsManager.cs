@@ -20,9 +20,9 @@ public class SettingsManager :
     [System.Serializable]
     public class Settings
     {
-        public int m_testInt;
-        public float m_testFloat;
-        public string m_testString;
+        public float m_rayonSphere;
+        public int m_initialPlateformCount;
+        public float m_minimalDistanceBetweenPlateform;
     }
 
     #endregion
