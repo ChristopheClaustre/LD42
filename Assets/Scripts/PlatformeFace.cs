@@ -52,11 +52,11 @@ public class PlatformeFace : MonoBehaviour {
 
     /********  PUBLIC           ************************/
 
-    public void ConstructTurret()
+    public void ConstructTurret(GameObject p_turrets)
     {
         if (! m_tower)
         {
-            m_tower = Instantiate(m_TowerPH);
+            m_tower = Instantiate(p_turrets);
             m_tower.transform.parent = this.transform;
             m_tower.transform.position = this.transform.position;
             m_tower.transform.rotation = this.transform.rotation;

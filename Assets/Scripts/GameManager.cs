@@ -36,6 +36,14 @@ public class GameManager :
         }
     }
 
+    public List<GameObject> Turrets
+    {
+        get
+        {
+            return m_turret;
+        }
+    }
+
     public static GameManager Inst
     {
         get
@@ -64,6 +72,8 @@ public class GameManager :
     private float m_nextRoundIn = 0;
 
     private List<GameObject> m_enemies = new List<GameObject>();
+
+    public List<GameObject> m_turret = new List<GameObject>();
 
     #endregion
     #region Methods
