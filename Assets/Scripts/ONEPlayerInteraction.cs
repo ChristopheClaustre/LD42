@@ -47,7 +47,7 @@ public class ONEPlayerInteraction : MonoBehaviour
     
     private GameObject m_currentInteractiveObject;
     private GameObject m_pistole;
-    private int m_currentTurretIndex;
+    private int m_currentTurretIndex = 0;
     private int m_selectedTower;
 
 
@@ -68,7 +68,6 @@ public class ONEPlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (Input.GetButtonDown("Fire1"))
         {
             //Fire ?
@@ -94,7 +93,7 @@ public class ONEPlayerInteraction : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if (m_currentTurretIndex < GameManager.Inst.Turrets.Count)
+            if (m_currentTurretIndex < GameManager.Inst.Turrets.Count-1)
             {
                 m_currentTurretIndex++;
             }
@@ -113,7 +112,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
             else
             {
-                m_currentTurretIndex = GameManager.Inst.Turrets.Count;
+                m_currentTurretIndex = GameManager.Inst.Turrets.Count-1;
             }
             m_pistole.GetComponent<Renderer>().material = GameManager.Inst.Turrets[m_currentTurretIndex].GetComponent<Renderer>().sharedMaterial;
         }
