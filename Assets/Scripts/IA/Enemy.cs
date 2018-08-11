@@ -92,7 +92,7 @@ public class Enemy :
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
 
-        m_canvas.LookAt(Vector3.zero);
+        m_canvas.LookAt(Camera.main.transform);
     }
 
     /********  OUR MESSAGES     ************************/
