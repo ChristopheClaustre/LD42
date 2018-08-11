@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4737419995956592}
   - component: {fileID: 114448008355967846}
   - component: {fileID: 114074674418371162}
+  - component: {fileID: 114265948134835556}
   m_Layer: 0
   m_Name: _Dora
   m_TagString: Untagged
@@ -56,6 +57,18 @@ MonoBehaviour:
   - {fileID: 1097990165921492, guid: dda213e429c08914fb7e3860c56abb79, type: 2}
   - {fileID: 1276841472202070, guid: a49e88a5d9a5ae9469cc71f77372aa84, type: 2}
   - {fileID: 1723415602914080, guid: bb1c75c12ffbc4b4d98eb0c6e5089b79, type: 2}
+--- !u!114 &114265948134835556
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1650407415016974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ef47dd0c61e19d45b9bdc4c5c8629a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_file: {fileID: 4900000, guid: b3cb135c28397c7418f9042d79a68e54, type: 3}
 --- !u!114 &114448008355967846
 MonoBehaviour:
   m_ObjectHideFlags: 1
