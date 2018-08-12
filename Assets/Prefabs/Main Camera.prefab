@@ -56,6 +56,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4168823341487000}
+  - component: {fileID: 114096869951861294}
   m_Layer: 0
   m_Name: T.O.W.E.L
   m_TagString: Untagged
@@ -746,6 +747,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &114096869951861294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1130511896158956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40ed960387c4364a9aae5322da1e4fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_turrets:
+  - {fileID: 1789263145681076, guid: 1ed2658ce123c93458423c23eb4c895e, type: 2}
+  - {fileID: 1258697194568380, guid: 0c29b57a7b7ca5946bfba49c26736044, type: 2}
 --- !u!114 &114172109922338342
 MonoBehaviour:
   m_ObjectHideFlags: 1

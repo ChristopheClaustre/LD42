@@ -194,11 +194,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114189696760507610, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: crosshairImage
-      value: 
-      objectReference: {fileID: 2800000, guid: 3b708195358b74e4cb2d325c99e5f490, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
   m_IsPrefabAsset: 0

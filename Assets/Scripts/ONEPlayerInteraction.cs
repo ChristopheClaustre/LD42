@@ -47,7 +47,6 @@ public class ONEPlayerInteraction : MonoBehaviour
     
     private GameObject m_currentInteractiveObject;
     private Transform m_turretSelector;
-    private int m_currentTurretIndex = 0;
     private int m_selectedTower;
 
 
@@ -61,8 +60,7 @@ public class ONEPlayerInteraction : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_turretSelector = transform.Find("T.O.W.E.L").Find("Turret Selector");
-        UpdatePistole();
+        m_turretSelector = transform.Find("T.O.W.E.L");
     }
 
     // Update is called once per frame
@@ -82,7 +80,7 @@ public class ONEPlayerInteraction : MonoBehaviour
                 PlatformeFace selectedPlatforme = m_currentInteractiveObject.GetComponent<PlatformeFace>();
                 if (selectedPlatforme)
                 {
-                    selectedPlatforme.ConstructTurret(GameManager.Inst.Turrets[m_currentTurretIndex]);
+                    selectedPlatforme.ConstructTurret(m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret);
                 }
             }
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
@@ -96,28 +94,12 @@ public class ONEPlayerInteraction : MonoBehaviour
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            if (m_currentTurretIndex < GameManager.Inst.Turrets.Count-1)
-            {
-                m_currentTurretIndex++;
-            }
-            else
-            {
-                m_currentTurretIndex = 0;
-            }
-            UpdatePistole();
+            m_turretSelector.gameObject.GetComponent<TurretSelector>().NextTurret();
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            if (m_currentTurretIndex > 0)
-            {
-                --m_currentTurretIndex;
-            }
-            else
-            {
-                m_currentTurretIndex = GameManager.Inst.Turrets.Count-1;
-            }
-            UpdatePistole();
+            m_turretSelector.gameObject.GetComponent<TurretSelector>().PreviousTurret();
         }
 
         if (Input.GetButtonDown("Show Game State"))
@@ -136,21 +118,6 @@ public class ONEPlayerInteraction : MonoBehaviour
     /********  PROTECTED        ************************/
 
     /********  PRIVATE          ************************/
-    void UpdatePistole()
-    {
-        if (m_turretSelector)
-        {
-            Transform currentTower = m_turretSelector.Find("tower");
-            if (currentTower)
-                Destroy(currentTower.gameObject);
-            GameObject tower = Instantiate(GameManager.Inst.Turrets[m_currentTurretIndex]);
-            tower.name = "tower";
-            tower.transform.parent = m_turretSelector;
-            tower.transform.position = m_turretSelector.position;
-            tower.transform.rotation = m_turretSelector.rotation;
-            tower.transform.localScale = new Vector3(1,1,1);
-        }
 
-    }
     #endregion
 }

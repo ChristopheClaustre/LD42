@@ -55,12 +55,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_musicTracks:
-  - {fileID: 8300000, guid: f4d587f5f5049e249898a8d2abbcd7ae, type: 3}
   - {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
   m_turret:
   - {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
   - {fileID: 1452261297117782, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
-  - {fileID: 1723415602914080, guid: bb1c75c12ffbc4b4d98eb0c6e5089b79, type: 2}
   m_availableEnemies:
   - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
   - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
