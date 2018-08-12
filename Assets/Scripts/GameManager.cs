@@ -91,7 +91,7 @@ public class GameManager :
     private void Start()
     {
         m_instance = this;
-        Debug.Log("Do Something");
+        Cursor.visible = false;
         SoundManager.Instance.PlaySingle(m_musicTracks[m_musicTracksSelected]);
     }
 

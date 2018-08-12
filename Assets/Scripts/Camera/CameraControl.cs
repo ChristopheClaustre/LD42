@@ -19,6 +19,7 @@ public class CameraControl : MonoBehaviour {
     public float m_camSens;
     [Range(0.0f, 1.0f)]
     public float m_radius = 0.05f;
+    public Texture2D crosshairImage;
 
     #endregion
     #region Methods
@@ -71,6 +72,13 @@ public class CameraControl : MonoBehaviour {
         p = p * Time.deltaTime;
         transform.Translate(p);
 
+    }
+
+    void OnGUI()
+    {
+        float xMin = (Screen.width / 2) - (crosshairImage.width / 2);
+        float yMin = (Screen.height / 2) - (crosshairImage.height / 2);
+        GUI.DrawTexture(new Rect(xMin, yMin, crosshairImage.width, crosshairImage.height), crosshairImage);
     }
     /********  OUR MESSAGES     ************************/
 
