@@ -116,6 +116,15 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
             m_pistole.GetComponent<Renderer>().material = GameManager.Inst.Turrets[m_currentTurretIndex].GetComponent<Renderer>().sharedMaterial;
         }
+
+        if (Input.GetButtonDown("Show Game State"))
+        {
+            Camera.main.cullingMask |= LayerMask.GetMask("GameState");
+        }
+        else if (Input.GetButtonUp("Show Game State"))
+        {
+            Camera.main.cullingMask &= ~ LayerMask.GetMask("GameState");
+        }
     }
     /********  OUR MESSAGES     ************************/
 
