@@ -236,20 +236,7 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: m_BackGroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 82629666690016996, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 243946644520514316, guid: 8522f221a0533bf41a3871d359413161,
-        type: 2}
-    m_RemovedComponents:
-    - {fileID: 82629666690016996, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
-    - {fileID: 114581015714583024, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &117823166
