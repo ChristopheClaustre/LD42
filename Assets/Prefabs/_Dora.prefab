@@ -53,8 +53,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00b77aaf1b0f8d843823282f994f2869, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_musicTracks:
+  - {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
   m_turret:
-  - {fileID: 1097990165921492, guid: dda213e429c08914fb7e3860c56abb79, type: 2}
+  - {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
   - {fileID: 1276841472202070, guid: a49e88a5d9a5ae9469cc71f77372aa84, type: 2}
   - {fileID: 1723415602914080, guid: bb1c75c12ffbc4b4d98eb0c6e5089b79, type: 2}
 --- !u!114 &114265948134835556

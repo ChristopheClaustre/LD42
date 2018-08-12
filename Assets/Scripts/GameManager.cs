@@ -71,6 +71,10 @@ public class GameManager :
     private int m_round = -1;
     private float m_nextRoundIn = 0;
 
+    //Audio
+    public List<AudioClip> m_musicTracks = new List<AudioClip>();
+    private int m_musicTracksSelected = 0;
+
     private List<GameObject> m_enemies = new List<GameObject>();
 
     public List<GameObject> m_turret = new List<GameObject>();
@@ -87,6 +91,8 @@ public class GameManager :
     private void Start()
     {
         m_instance = this;
+        Debug.Log("Do Something");
+        SoundManager.Instance.PlaySingle(m_musicTracks[m_musicTracksSelected]);
     }
 
     // Update is called once per frame

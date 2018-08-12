@@ -70,7 +70,7 @@ public class ONEPlayerInteraction : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            //Fire ?
+
         }
 
         if (Input.GetButtonDown("Fire2"))
@@ -80,12 +80,6 @@ public class ONEPlayerInteraction : MonoBehaviour
                 PlatformeFace selectedPlatforme = m_currentInteractiveObject.GetComponent<PlatformeFace>();
                 if (selectedPlatforme)
                 {
-
-
-
-                    //Depend of selected tower
-                    //selectedPlatforme.Tower = selectedTower
-
                     selectedPlatforme.ConstructTurret(GameManager.Inst.Turrets[m_currentTurretIndex]);
                 }
             }
