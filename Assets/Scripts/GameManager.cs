@@ -104,12 +104,16 @@ public class GameManager :
 
     public List<GameObject> m_turret = new List<GameObject>();
 
+    public List<GameObject> m_availableEnemies = new List<GameObject>();
+
     private GameState m_state;
 
     public GameObject m_cameraStartMenu;
     public GameObject m_cameraDefeatMenu;
 
     private GameObject m_player;
+
+    public GameObject m_prefabFog;
 
     #endregion
     #region Methods
@@ -226,7 +230,42 @@ public class GameManager :
         ++m_round;
         Debug.Log("Beginning of round " + (m_round + 1));
 
+        // Create fogs
+        if (m_round < EnemiesDataManager.Inst.m_firstRounds.Length)
+            CreateRound(EnemiesDataManager.Inst.m_firstRounds[m_round]);
+        else
+        {
+            int delta = m_round - EnemiesDataManager.Inst.m_firstRounds.Length;
+            
+            for (int i = 0; i < EnemiesDataManager.Inst.m_minimalNumberOfLaterRoundFogs + delta; i++)
+            {
+                CreateFog(EnemiesDataManager.Inst.m_laterRoundFogs);
+            }
+        }
+
         m_nextRoundIn = SettingsManager.Inst.m_roundDuration;
+    }
+
+    private void CreateRound(EnemiesDataManager.RoundData p_data)
+    {
+        foreach (var m_fog in p_data.m_fogs)
+        {
+            CreateFog(m_fog);
+        }
+    }
+
+    private void CreateFog(EnemiesDataManager.EvilFogGenerationData p_data)
+    {
+        GameObject fog = Instantiate(m_prefabFog,
+            GenerateMap.PolarToCartesian(GenerateMap.GenerateRandomPolarCoordinates(SettingsManager.Inst.m_rayonSphere, SettingsManager.Inst.m_rayonExternalSphere)),
+            Quaternion.identity);
+
+        fog.GetComponent<EvilFog>().m_availableEnemies.Clear();
+        foreach (int index in p_data.m_availableEnemies)
+        {
+            fog.GetComponent<EvilFog>().m_availableEnemies.Add(m_availableEnemies[index]);
+        }
+        fog.GetComponent<EvilFog>().m_numberOfEnemies = p_data.m_numberOfEnemies;
     }
 
     private void ManageRound()
