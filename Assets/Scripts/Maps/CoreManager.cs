@@ -70,12 +70,7 @@ public class CoreManager :
     {
         if (other.tag == "Enemy")
         {
-            other.gameObject.GetComponent<Enemy>().Hit(9001);
-
-            GameObject[] plateforms = GameObject.FindGameObjectsWithTag("Plateform");
-
-            if (plateforms.Length > 0)
-                Destroy(plateforms[Random.Range(0, plateforms.Length)]);
+            GameManager.Inst.CoreHitted(other.gameObject);
         }
     }
 

@@ -4,6 +4,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 /***************************************************/
 /***  THE CLASS             ************************/
@@ -17,6 +18,14 @@ public class GameManager :
     /***************************************************/
 
     /********  PUBLIC           ************************/
+
+    enum GameState
+    {
+        Start,
+        Fighting,
+        Waiting,
+        Defeat
+    }
 
     /********  PROTECTED        ************************/
 
@@ -52,6 +61,22 @@ public class GameManager :
         }
     }
 
+    private GameState State
+    {
+        get
+        {
+            return m_state;
+        }
+    }
+
+    public GameObject Player
+    {
+        get
+        {
+            return m_player;
+        }
+    }
+
     #endregion
     #region Constants
     /***************************************************/
@@ -76,8 +101,16 @@ public class GameManager :
     private int m_musicTracksSelected = 0;
 
     private List<GameObject> m_enemies = new List<GameObject>();
+    private List<GameObject> m_plateforms = new List<GameObject>();
 
     public List<GameObject> m_turret = new List<GameObject>();
+
+    private GameState m_state;
+
+    public Camera m_cameraStartMenu;
+    public Camera m_cameraDefeatMenu;
+
+    private GameObject m_player;
 
     #endregion
     #region Methods
@@ -93,24 +126,91 @@ public class GameManager :
         m_instance = this;
         Cursor.visible = false;
         SoundManager.Instance.PlaySingle(m_musicTracks[m_musicTracksSelected]);
+
+        m_state = GameState.Start;
+
+        m_player = GameObject.FindGameObjectWithTag("MainCamera");
+
+        m_player.SetActive(false);
+        m_cameraStartMenu.enabled = true;
+
+        // update plateforms list
+        m_plateforms.AddRange(GameObject.FindGameObjectsWithTag("Plateform"));
     }
 
     // Update is called once per frame
     private void Update()
     {
-        // update ennmies list
+        // update enemies list
         m_enemies.Clear();
         m_enemies.AddRange(GameObject.FindGameObjectsWithTag("Enemy"));
 
-        // manage round
-        m_nextRoundIn -= Time.deltaTime;
-        if (m_nextRoundIn <= 0)
-            NextRound();
+        switch (m_state)
+        {
+            case GameState.Start:
+                if (Input.GetButtonDown("Submit"))
+                {
+                    StartGame();
+                    m_state = GameState.Waiting;
+                }
+                break;
+            case GameState.Fighting:
+                ManageRound();
+                if (m_enemies.Count == 0)
+                {
+                    // TODO: changeSound
+                    m_state = GameState.Waiting;
+                }
+                if (m_plateforms.Count == 0)
+                {
+                    Defeat();
+                    m_state = GameState.Defeat;
+                }
+                break;
+            case GameState.Waiting:
+                ManageRound();
+                if (m_enemies.Count > 0)
+                {
+                    // TODO: changeSound
+                    m_state = GameState.Fighting;
+                }
+                break;
+            case GameState.Defeat:
+                if (Input.GetButtonDown("Submit"))
+                {
+                    SceneManager.LoadScene("cricri_scene");
+                }
+                break;
+        }
     }
 
     /********  OUR MESSAGES     ************************/
 
     /********  PUBLIC           ************************/
+
+    public void CoreHitted(GameObject p_enemy)
+    {
+        m_enemies.Remove(p_enemy);
+        p_enemy.GetComponent<Enemy>().Hit(9001);
+
+        int index = Random.Range(0, m_plateforms.Count);
+        GameObject toDestroy = m_plateforms[index];
+        m_plateforms.RemoveAt(index);
+
+        Destroy(toDestroy);
+    }
+
+    public void Defeat()
+    {
+        m_player.SetActive(false);
+        m_cameraDefeatMenu.enabled = true;
+    }
+
+    public void StartGame()
+    {
+        m_player.SetActive(true);
+        m_cameraStartMenu.enabled = false;
+    }
 
     /********  PROTECTED        ************************/
 
@@ -122,6 +222,14 @@ public class GameManager :
         Debug.Log("Beginning of round " + (m_round + 1));
 
         m_nextRoundIn = SettingsManager.Inst.m_roundDuration;
+    }
+
+    private void ManageRound()
+    {
+        // manage round
+        m_nextRoundIn -= Time.deltaTime;
+        if (m_nextRoundIn <= 0)
+            NextRound();
     }
 
     #endregion
