@@ -35,14 +35,16 @@ public class CameraSensor : MonoBehaviour
         Vector3 middle = new Vector3(0.5f, 0.5f, 0.0f);
         Ray ray = Camera.main.ViewportPointToRay(middle);
 
-        int layerMask = LayerMask.GetMask("PlatformeFace", "Default");
 
-        Debug.DrawRay(transform.position, ray.direction, Color.red);
-        if (Physics.Raycast(ray, out hit, 2.0f, layerMask) )
+        //Raycast platform;
+        int layerMask = LayerMask.GetMask("PlatformeFace", "Default");
+        if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) )
         {
             Transform objectHit = hit.transform;
-            if (objectHit.gameObject.tag == "PlatformeFace")
+            Debug.Log(objectHit.gameObject.tag);
+            if (objectHit.gameObject.tag == "PlatformeFace" && hit.distance < 2.0f)
             {
+                
                 if (PreviousFaceHit != objectHit.gameObject)
                 {
                     if(PreviousFaceHit)
@@ -51,7 +53,17 @@ public class CameraSensor : MonoBehaviour
                     }
                     objectHit.gameObject.layer = 0;
                     PreviousFaceHit = objectHit.gameObject;
+                    ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit.transform.parent.gameObject;
                 }
+            }
+            else if(objectHit.gameObject.tag == "TpTurret")
+            {
+                Debug.Log("Hello there");
+                ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;
+            }
+            else if (objectHit.gameObject.tag == "Enemy")
+            {
+                ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;
             }
             else // Default (or future obstacles)
             {
@@ -59,6 +71,7 @@ public class CameraSensor : MonoBehaviour
                 {
                     PreviousFaceHit.layer = 8;
                 }
+                ONEPlayerInteraction.Instance.CurrentInteractiveObject = null;
             }
         }
         else
@@ -68,11 +81,7 @@ public class CameraSensor : MonoBehaviour
                 PreviousFaceHit.layer = 8;
                 PreviousFaceHit = null;
             }
-        }
-
-        if(PreviousFaceHit)
-        {
-            ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit.transform.parent.gameObject;
+            ONEPlayerInteraction.Instance.CurrentInteractiveObject = null;
         }
     }
     /********  OUR MESSAGES     ************************/

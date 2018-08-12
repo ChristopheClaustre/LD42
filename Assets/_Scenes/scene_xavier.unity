@@ -194,41 +194,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: near clip plane
-      value: 0.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 20371581602145668, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114550439534817034, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: music2
-      value: 
-      objectReference: {fileID: 8300000, guid: f4d587f5f5049e249898a8d2abbcd7ae, type: 3}
-    - target: {fileID: 114550439534817034, guid: 635b6630cadfd4c43adee5f381b0ebac,
-        type: 2}
-      propertyPath: music1
-      value: 
-      objectReference: {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
   m_IsPrefabAsset: 0
@@ -342,22 +307,13 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4751847391959894, guid: 2c7d192167139484e86f531731d3a909, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.058
+    - target: {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
-    - target: {fileID: 224875949268391128, guid: 2c7d192167139484e86f531731d3a909,
-        type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.169
-      objectReference: {fileID: 0}
-    - target: {fileID: 4531989298437704, guid: 2c7d192167139484e86f531731d3a909, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.103
-      objectReference: {fileID: 0}
-    - target: {fileID: 4545515063197164, guid: 2c7d192167139484e86f531731d3a909, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0.407
+    - target: {fileID: 1467941856604994, guid: 2c7d192167139484e86f531731d3a909, type: 2}
+      propertyPath: m_TagString
+      value: Turret
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7d192167139484e86f531731d3a909, type: 2}
@@ -470,118 +426,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!1 &1291496907 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1007201753134424, guid: 635b6630cadfd4c43adee5f381b0ebac,
-    type: 2}
-  m_PrefabInternal: {fileID: 297665065}
---- !u!82 &1291496908
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1291496907}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
---- !u!114 &1291496909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1291496907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3347b916af8cd0b4b84f189c61d50ff6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_music: {fileID: 1291496908}
 --- !u!1001 &1297005479
 Prefab:
   m_ObjectHideFlags: 0
@@ -623,6 +467,72 @@ Prefab:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a49e88a5d9a5ae9469cc71f77372aa84, type: 2}
+  m_IsPrefabAsset: 0
+--- !u!1001 &1407376038
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -15
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442276740332810, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1164691303356104, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1376179569854666, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1880350272989678, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1472859136438286, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1044317014811580, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 1061402895232542, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1418285061
 Prefab:
@@ -721,6 +631,12 @@ Prefab:
       propertyPath: m_musicTracks.Array.data[0]
       value: 
       objectReference: {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
+    - target: {fileID: 114074674418371162, guid: acb61d6798210cb47a50c28a8bd615c7,
+        type: 2}
+      propertyPath: m_turret.Array.data[1]
+      value: 
+      objectReference: {fileID: 1452261297117782, guid: 438f438f71ecf5240bf8928b9096c3de,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acb61d6798210cb47a50c28a8bd615c7, type: 2}
   m_IsPrefabAsset: 0

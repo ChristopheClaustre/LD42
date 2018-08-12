@@ -70,9 +70,13 @@ public class ONEPlayerInteraction : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-
+            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
+            {
+                m_currentInteractiveObject.GetComponent<Enemy>().Hit(2/*TODO USE DATA*/);
+            }
         }
-
+        if(m_currentInteractiveObject)
+            Debug.Log(m_currentInteractiveObject.tag);
         if (Input.GetButtonDown("Fire2"))
         {
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
@@ -83,6 +87,13 @@ public class ONEPlayerInteraction : MonoBehaviour
                     selectedPlatforme.ConstructTurret(GameManager.Inst.Turrets[m_currentTurretIndex]);
                 }
             }
+            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
+            {
+                Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
+                deplacement = deplacement.normalized * (deplacement.magnitude-2);
+                transform.position = transform.position + deplacement;
+            }
+
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)

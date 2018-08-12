@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - Turret
   - Plateform
+  - TpTurret
   layers:
   - Default
   - TransparentFX
