@@ -284,6 +284,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_healthBar: {fileID: 114160483257671892}
+  m_type: 0
 --- !u!222 &222428366088636614
 CanvasRenderer:
   m_ObjectHideFlags: 1
