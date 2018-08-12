@@ -1,0 +1,20 @@
+{
+	"m_enemies": [
+		{
+			"m_health": 20,
+			"m_velocity": 0.2
+		},
+		{
+			"m_health": 10,
+			"m_velocity": 0.8
+		},
+		{
+			"m_health": 5,
+			"m_velocity": 0
+		}
+	],
+	"m_initialNumberOfFogs" : 3,
+	"m_initialNumberOfFoes" : 5,
+	"m_finalNumberOfFoes" : 15,
+	"m_turnoverRound" : 5
+}

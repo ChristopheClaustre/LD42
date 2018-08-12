@@ -4,11 +4,12 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 
 /***************************************************/
 /***  THE CLASS             ************************/
 /***************************************************/
-public class Enemy :
+public class EnemiesDataManager :
     MonoBehaviour
 {
     #region Sub-classes/enum
@@ -16,11 +17,30 @@ public class Enemy :
     /***  SUB-CLASSES/ENUM      ************************/
     /***************************************************/
 
-    /********  PUBLIC           ************************/
+    public enum EnemyType
+    {
+        NORMAL,
+        FAST,
+        SHIELD
+    }
 
-    /********  PROTECTED        ************************/
+    [System.Serializable]
+    public class EnemyData
+    {
+        public int m_health;
+        public float m_velocity;
+    }
 
-    /********  PRIVATE          ************************/
+    [System.Serializable]
+    public struct Data
+    {
+        public EnemyData[] m_enemies;
+        
+        public int m_initialNumberOfFogs;
+        public int m_initialNumberOfFoes;
+        public int m_finalNumberOfFoes;
+        public int m_turnoverRound;
+    }
 
     #endregion
     #region Property
@@ -28,13 +48,21 @@ public class Enemy :
     /***  PROPERTY              ************************/
     /***************************************************/
 
+
+
     #endregion
     #region Constants
     /***************************************************/
     /***  CONSTANTS             ************************/
     /***************************************************/
 
-    
+    public static Data Inst
+    {
+        get
+        {
+            return m_settings;
+        }
+    }
 
     #endregion
     #region Attributes
@@ -42,13 +70,11 @@ public class Enemy :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
+
+    private static Data m_settings;
+
     [SerializeField]
-    private ManageBar m_healthBar;
-
-    private EnemiesDataManager.EnemyData m_initial = new EnemiesDataManager.EnemyData { m_velocity = 0.1f, m_health = 12 };
-    private int m_health = 12;
-
-    public EnemiesDataManager.EnemyType m_type;
+    private TextAsset m_file;
 
     #endregion
     #region Methods
@@ -61,53 +87,24 @@ public class Enemy :
     // Use this for initialization
     private void Start()
     {
-        m_initial = EnemiesDataManager.Inst.m_enemies[(int)m_type];
+        Debug.Assert(m_file != null, "Settings file not found...");
 
-        m_health = m_initial.m_health;
-
-        UpdateBar();
+        m_settings = JsonUtility.FromJson<Data>(m_file.text);
     }
 
     // Update is called once per frame
     private void Update()
     {
-        transform.position += - transform.position.normalized * m_initial.m_velocity * Time.deltaTime;
-        
-        transform.LookAt(Vector3.zero);
 
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
     }
 
     /********  OUR MESSAGES     ************************/
 
     /********  PUBLIC           ************************/
 
-    public void Hit(int p_damage)
-    {
-        m_health -= p_damage;
-
-        UpdateBar();
-
-        if (m_health <= 0) Die();
-    }
-
     /********  PROTECTED        ************************/
 
     /********  PRIVATE          ************************/
-
-    private void Die()
-    {
-        // do cool stuff
-
-        // then die
-        Destroy(gameObject);
-    }
-
-    private void UpdateBar()
-    {
-        m_healthBar.m_value = (float)m_health / m_initial.m_health;
-    }
 
     #endregion
 }
