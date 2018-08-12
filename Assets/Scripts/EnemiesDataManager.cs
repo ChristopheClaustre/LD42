@@ -32,6 +32,13 @@ public class EnemiesDataManager :
     }
 
     [System.Serializable]
+    public class FogData
+    {
+        public float m_timeBetweenEnemies;
+        public float m_radius;
+    }
+
+    [System.Serializable]
     public struct Data
     {
         public EnemyData[] m_enemies;
@@ -40,6 +47,8 @@ public class EnemiesDataManager :
         public int m_initialNumberOfFoes;
         public int m_finalNumberOfFoes;
         public int m_turnoverRound;
+
+        public FogData m_fogData;
     }
 
     #endregion

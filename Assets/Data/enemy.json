@@ -16,5 +16,9 @@
 	"m_initialNumberOfFogs" : 3,
 	"m_initialNumberOfFoes" : 5,
 	"m_finalNumberOfFoes" : 15,
-	"m_turnoverRound" : 5
+	"m_turnoverRound" : 5,
+	"m_fogData" : {
+		"m_timeBetweenEnemies": 3,
+		"m_radius": 3
+	}
 }
