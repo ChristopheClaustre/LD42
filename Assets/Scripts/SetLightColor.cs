@@ -32,7 +32,7 @@ public class SetLightColor :
     // Use this for initialization
     private void Start()
     {
-        Vector3 polar = CartesianToPolar(transform.position);
+        Vector3 polar = GenerateMap.CartesianToPolar(transform.position);
         SetColor(Color.HSVToRGB(
             polar.y / Mathf.PI,
             1 - (polar.x / SettingsManager.Inst.m_rayonSphere) * 0.5f,
@@ -53,15 +53,6 @@ public class SetLightColor :
     /********  PROTECTED        ************************/
 
     /********  PRIVATE          ************************/
-
-    private Vector3 CartesianToPolar(Vector3 p_cartesian)
-    {
-        return new Vector3(
-            p_cartesian.magnitude,
-            Mathf.Acos(p_cartesian.z / p_cartesian.magnitude),
-            Mathf.Atan(p_cartesian.y / p_cartesian.x)
-            );
-    }
 
     private void SetColor(Color p_color)
     {

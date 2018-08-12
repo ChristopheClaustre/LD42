@@ -70,7 +70,7 @@ public class GenerateMap :
             do
             {
                 iter++;
-                position = GenerateCoordinates();
+                position = GenerateRandomPolarCoordinates(SettingsManager.Inst.m_rayonCore, SettingsManager.Inst.m_rayonSphere);
             } while ( ! CheckCoordinates(position, used) && iter < 800);
 
             if (iter >= 800)
@@ -93,18 +93,45 @@ public class GenerateMap :
 
     /********  PUBLIC           ************************/
 
-    /********  PROTECTED        ************************/
-
-    /********  PRIVATE          ************************/
-
-    private Vector3 GenerateCoordinates()
+    // Generate Random polar coordinates
+    public static Vector3 GenerateRandomPolarCoordinates(float p_minRho, float p_maxRho)
     {
         return new Vector3(
-            Random.Range(SettingsManager.Inst.m_rayonCore, SettingsManager.Inst.m_rayonSphere), // rho
+            Random.Range(p_minRho, p_maxRho), // rho
             Random.Range(-180.0f, 180.0f), // phi
             Random.Range(-90.0f, 90)  // theta
             );
     }
+
+    // cartesian coordinates to rayon-longitude-latitude
+    public static Vector3 CartesianToPolar(Vector3 p_cartesian)
+    {
+        return new Vector3(
+            p_cartesian.magnitude,
+            Mathf.Acos(p_cartesian.z / p_cartesian.magnitude),
+            Mathf.Atan(p_cartesian.y / p_cartesian.x)
+            );
+    }
+
+    // rayon-longitude-latitude to cartesian coordinates
+    public static Vector3 PolarToCartesian(Vector3 p_polarCoordinates)
+    {
+        return new Vector3(
+            p_polarCoordinates.x * Mathf.Cos(p_polarCoordinates.y) * Mathf.Cos(p_polarCoordinates.z),
+            p_polarCoordinates.x * Mathf.Sin(p_polarCoordinates.y) * Mathf.Cos(p_polarCoordinates.z),
+            p_polarCoordinates.x * Mathf.Sin(p_polarCoordinates.z)
+            );
+    }
+
+    // distance between two points
+    public static float PolarDistance(Vector3 p_p1, Vector3 p_p2)
+    {
+        return Vector3.Distance(PolarToCartesian(p_p1), PolarToCartesian(p_p2));
+    }
+
+    /********  PROTECTED        ************************/
+
+    /********  PRIVATE          ************************/
 
     private bool CheckCoordinates(Vector3 p_polarPosition, List<Vector3> p_previous)
     {
@@ -120,22 +147,6 @@ public class GenerateMap :
         Instantiate(m_prefab, PolarToCartesian(p_polarPosition), quat, m_prefabParent);
 
         // change color
-    }
-
-    // rayon-longitude-latitude to cartesian coordinates
-    private Vector3 PolarToCartesian(Vector3 p_polarCoordinates)
-    {
-        return new Vector3(
-            p_polarCoordinates.x * Mathf.Cos(p_polarCoordinates.y) * Mathf.Cos(p_polarCoordinates.z),
-            p_polarCoordinates.x * Mathf.Sin(p_polarCoordinates.y) * Mathf.Cos(p_polarCoordinates.z),
-            p_polarCoordinates.x * Mathf.Sin(p_polarCoordinates.z)
-            );
-    }
-
-    // distance between two points
-    private float PolarDistance(Vector3 p_p1, Vector3 p_p2)
-    {
-        return Vector3.Distance(PolarToCartesian(p_p1), PolarToCartesian(p_p2));
     }
 
     #endregion
