@@ -66,10 +66,23 @@ public class GenerateMap :
         for (int i = 0; i < SettingsManager.Inst.m_initialPlateformCount; i++)
         {
             Vector3 position;
+            int iter = 0;
             do
             {
+                iter++;
                 position = GenerateCoordinates();
-            } while ( ! CheckCoordinates(position, used) );
+            } while ( ! CheckCoordinates(position, used) && iter < 800);
+
+            if (iter >= 800)
+            {
+                Debug.LogAssertion("Impossible to generate map ! Change settings !");
+#if UNITY_EDITOR
+                UnityEditor.EditorApplication.isPlaying = false;
+#else
+                Application.Quit();
+#endif
+                break;
+            }
 
             GenerateOnePlateform(position);
             used.Add(position);
