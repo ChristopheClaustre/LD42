@@ -137,6 +137,11 @@ public class GameManager :
         m_plateforms.AddRange(GameObject.FindGameObjectsWithTag("Plateform"));
     }
 
+    void OnApplicationFocus(bool hasFocus)
+    {
+        Cursor.visible = !hasFocus;
+    }
+
     // Update is called once per frame
     private void Update()
     {

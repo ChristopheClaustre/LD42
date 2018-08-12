@@ -41,7 +41,6 @@ public class CameraSensor : MonoBehaviour
         if (Physics.Raycast(ray, out hit, Mathf.Infinity, layerMask) )
         {
             Transform objectHit = hit.transform;
-            Debug.Log(objectHit.gameObject.tag);
             if (objectHit.gameObject.tag == "PlatformeFace" && hit.distance < 2.0f)
             {
                 
@@ -58,7 +57,6 @@ public class CameraSensor : MonoBehaviour
             }
             else if(objectHit.gameObject.tag == "TpTurret")
             {
-                Debug.Log("Hello there");
                 ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;
             }
             else if (objectHit.gameObject.tag == "Enemy")

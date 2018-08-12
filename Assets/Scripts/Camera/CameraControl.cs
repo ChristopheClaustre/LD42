@@ -18,7 +18,7 @@ public class CameraControl : MonoBehaviour {
     public float m_mainSpeed;
     public float m_camSens;
     [Range(0.0f, 1.0f)]
-    public float m_radius = 0.05f;
+    public float m_radius = 0.1f;
     public Texture2D crosshairImage;
 
     #endregion
