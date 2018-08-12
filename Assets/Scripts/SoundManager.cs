@@ -35,8 +35,6 @@ public class SoundManager : MonoBehaviour {
     public AudioSource m_music;
 
     #endregion
-
-
     #region Methods
     /***************************************************/
     /***  METHODS               ************************/
@@ -53,7 +51,10 @@ public class SoundManager : MonoBehaviour {
     // Use this for initialization
     void Start ()
     {
-        m_instance = this;
+        if (m_instance != null)
+            Destroy(gameObject);
+        else
+            m_instance = this;
     }
 	
 	// Update is called once per frame
