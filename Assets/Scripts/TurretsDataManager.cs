@@ -18,21 +18,21 @@ public class TurretsDataManager :
     /***************************************************/
 
     [System.Serializable]
-    public class EnemyData
+    public class TurretData
     {
         public int m_cost;
         public float m_cooldown;
     }
 
     [System.Serializable]
-    public class DamageTurretData : EnemyData
+    public class DamageTurretData : TurretData
     {
         public int m_hit;
         public float m_radius;
     }
 
     [System.Serializable]
-    public class FreezerData : EnemyData
+    public class FreezerData : TurretData
     {
         public float m_radius;
         public float m_frozePower;
@@ -45,7 +45,7 @@ public class TurretsDataManager :
         public DamageTurretData[] m_gunnerLevels;
         public DamageTurretData[] m_areaLevels;
         public DamageTurretData[] m_energizorLevels;
-        public EnemyData[] m_tpLevels;
+        public TurretData[] m_tpLevels;
         public FreezerData[] m_freezerLevels;
     }
 

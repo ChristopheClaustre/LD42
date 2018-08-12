@@ -50,7 +50,7 @@ public abstract class Turret :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
-    protected TurretsDataManager.EnemyData m_data = new TurretsDataManager.EnemyData { m_cooldown = 0.5f, m_cost = 5 };
+    protected TurretsDataManager.TurretData m_data = new TurretsDataManager.TurretData { m_cooldown = 0.5f, m_cost = 5 };
 
     private State m_state = State.CanShoot;
 
