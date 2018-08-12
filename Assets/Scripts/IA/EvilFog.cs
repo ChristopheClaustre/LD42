@@ -62,8 +62,6 @@ public class EvilFog :
     private void Start()
     {
         m_data = EnemiesDataManager.Inst.m_fogData;
-
-        Gizmos.DrawSphere(transform.position, m_data.m_radius);
     }
 
     // Update is called once per frame
