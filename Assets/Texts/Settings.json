@@ -1,6 +1,6 @@
 {
     "m_rayonSphere": 20,
-    "m_rayonExternalSphere": 8,
+    "m_rayonExternalSphere": 22,
     "m_rayonCore": 1.5,
     "m_initialPlateformCount": 50,
     "m_minimalDistanceBetweenPlateform": 8,
