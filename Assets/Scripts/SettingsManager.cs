@@ -21,6 +21,7 @@ public class SettingsManager :
     public class Settings
     {
         public float m_rayonSphere;
+        public float m_rayonExternalSphere;
         public float m_rayonCore;
         public int m_initialPlateformCount;
         public float m_minimalDistanceBetweenPlateform;

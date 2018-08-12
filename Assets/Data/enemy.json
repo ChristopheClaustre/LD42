@@ -13,12 +13,50 @@
 			"m_velocity": 0
 		}
 	],
-	"m_initialNumberOfFogs" : 3,
-	"m_initialNumberOfFoes" : 5,
-	"m_finalNumberOfFoes" : 15,
-	"m_turnoverRound" : 5,
-	"m_fogData" : {
-		"m_timeBetweenEnemies": 3,
-		"m_radius": 3
-	}
+    
+    "m_fogData": {
+        "m_timeBetweenEnemies": 3,
+        "m_radius": 3
+    },
+
+	"m_firstRounds" : [
+		{
+			"m_fogs": [
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 5
+				},
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 5
+				},
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 5
+				}
+			]
+		},
+		{
+			"m_fogs": [
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 6
+				},
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 6
+				},
+				{
+					"m_availableEnemies": [ 0 ],
+					"m_numberOfEnemies": 6
+				}
+			]
+		}
+	],
+	
+	"m_laterRoundFogs": {
+		"m_availableEnemies": [ 0, 1, 2 ],
+		"m_numberOfEnemies": 6
+	},
+	"m_minimalNumberOfLaterRoundFogs": 3
 }

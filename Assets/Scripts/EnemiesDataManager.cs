@@ -32,23 +32,36 @@ public class EnemiesDataManager :
     }
 
     [System.Serializable]
-    public class FogData
+    public class EvilFogData
     {
         public float m_timeBetweenEnemies;
         public float m_radius;
     }
 
     [System.Serializable]
+    public class EvilFogGenerationData
+    {
+        public int[] m_availableEnemies; // indices selon le type des enemies
+        public int m_numberOfEnemies;
+    }
+
+    [System.Serializable]
+    public class RoundData
+    {
+        public EvilFogGenerationData[] m_fogs;
+    }
+
+    [System.Serializable]
     public struct Data
     {
         public EnemyData[] m_enemies;
-        
-        public int m_initialNumberOfFogs;
-        public int m_initialNumberOfFoes;
-        public int m_finalNumberOfFoes;
-        public int m_turnoverRound;
 
-        public FogData m_fogData;
+        public EvilFogData m_fogData;
+
+        public RoundData[] m_firstRounds;
+
+        public EvilFogGenerationData m_laterRoundFogs;
+        public int m_minimalNumberOfLaterRoundFogs;
     }
 
     #endregion

@@ -46,7 +46,7 @@ public class EvilFog :
 
     public List<GameObject> m_availableEnemies;
     public int m_numberOfEnemies;
-    private EnemiesDataManager.FogData m_data;
+    private EnemiesDataManager.EvilFogData m_data;
 
     private float m_timer = 0;
     
