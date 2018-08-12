@@ -73,7 +73,8 @@ public class Enemy :
     {
         transform.position += - transform.position.normalized * m_initial.m_velocity * Time.deltaTime;
         
-        transform.LookAt(Vector3.zero);
+        if (m_initial.m_velocity != 0)
+            transform.LookAt(Vector3.zero);
 
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
