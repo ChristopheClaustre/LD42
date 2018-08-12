@@ -6,5 +6,7 @@
     "m_minimalDistanceBetweenPlateform": 8,
     "m_roundDuration": 20,
     "m_playerSpeed": 10.0,
-    "m_playerAngularSpeed": 100.0
+    "m_playerAngularSpeed": 100.0,
+	
+	"m_mapGenerationCheck": 8000
 }

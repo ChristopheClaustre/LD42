@@ -71,9 +71,9 @@ public class GenerateMap :
             {
                 iter++;
                 position = GenerateRandomPolarCoordinates(SettingsManager.Inst.m_rayonCore, SettingsManager.Inst.m_rayonSphere);
-            } while ( ! CheckCoordinates(position, used) && iter < 800);
+            } while ( ! CheckCoordinates(position, used) && iter < SettingsManager.Inst.m_mapGenerationCheck);
 
-            if (iter >= 800)
+            if (iter >= SettingsManager.Inst.m_mapGenerationCheck)
             {
                 Debug.LogAssertion("Impossible to generate map ! Change settings !");
 #if UNITY_EDITOR

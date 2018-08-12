@@ -28,6 +28,8 @@ public class SettingsManager :
         public float m_roundDuration;
         public float m_playerSpeed;
         public float m_playerAngularSpeed;
+
+        public int m_mapGenerationCheck;
     }
 
     #endregion
