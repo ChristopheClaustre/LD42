@@ -124,6 +124,7 @@ public class GameManager :
     {
         m_instance = this;
         Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         SoundManager.Instance.PlaySingle(m_musicTracks[1]);
 
         m_state = GameState.Start;

@@ -37,25 +37,34 @@ public class CameraControl : MonoBehaviour {
 
     private void Update()
     {
-        Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        mousePos.x -= 0.5f;
-        mousePos.y -= 0.5f;
 
-        // No effect circle zone 
-        if ( (mousePos.x*mousePos.x) + (mousePos.y * mousePos.y) < (m_radius * m_radius))
-        {
-            mousePos.x = 0;
-            mousePos.y = 0;
-        }
+        float h = m_camSens/100 * Input.GetAxis("Mouse X");
+        float v = m_camSens/100 * Input.GetAxis("Mouse Y");
+        transform.Rotate(-v, h, 0);
 
-        //Pitch 
-        Vector3 pitch = new Vector3(-mousePos.normalized.y,0,0);
-        transform.Rotate(pitch * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.y)));
-        //Yaw
-        Vector3 yaw = new Vector3(0, mousePos.normalized.x, 0);
-        if (transform )
-        transform.Rotate(yaw * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.x)));
+        //**************************************
+        //Other camera setting DO NOT DELETE
+        //**************************************
+        //Vector3 mousePos = Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        //mousePos.x -= 0.5f;
+        //mousePos.y -= 0.5f;
 
+        //// No effect circle zone 
+        //if ( (mousePos.x*mousePos.x) + (mousePos.y * mousePos.y) < (m_radius * m_radius))
+        //{
+        //    mousePos.x = 0;
+        //    mousePos.y = 0;
+        //}
+
+        ////Pitch 
+        //Vector3 pitch = new Vector3(-mousePos.normalized.y,0,0);
+        //transform.Rotate(pitch * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.y)));
+        ////Yaw
+        //Vector3 yaw = new Vector3(0, mousePos.normalized.x, 0);
+        //if (transform )
+        //transform.Rotate(yaw * Time.deltaTime * m_camSens * Mathf.InverseLerp(0, 0.5f, Mathf.Abs(mousePos.x)));
+
+        //**************************************
         //Roll
         if (Input.GetAxis("Roll") < 0)
         {
