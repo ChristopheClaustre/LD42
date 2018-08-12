@@ -46,7 +46,7 @@ public class ONEPlayerInteraction : MonoBehaviour
     private static ONEPlayerInteraction m_instance = null;
     
     private GameObject m_currentInteractiveObject;
-    private GameObject m_pistole;
+    private Transform m_turretSelector;
     private int m_currentTurretIndex = 0;
     private int m_selectedTower;
 
@@ -61,8 +61,8 @@ public class ONEPlayerInteraction : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        m_pistole = transform.Find("T.O.W.E.L").gameObject;
-        m_pistole.GetComponent<Renderer>().material = GameManager.Inst.Turrets[m_currentTurretIndex].GetComponent<Renderer>().sharedMaterial;
+        m_turretSelector = transform.Find("T.O.W.E.L").Find("Turret Selector");
+        UpdatePistole();
     }
 
     // Update is called once per frame
@@ -75,8 +75,6 @@ public class ONEPlayerInteraction : MonoBehaviour
                 m_currentInteractiveObject.GetComponent<Enemy>().Hit(2/*TODO USE DATA*/);
             }
         }
-        if(m_currentInteractiveObject)
-            Debug.Log(m_currentInteractiveObject.tag);
         if (Input.GetButtonDown("Fire2"))
         {
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
@@ -106,7 +104,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             {
                 m_currentTurretIndex = 0;
             }
-            m_pistole.GetComponent<Renderer>().material = GameManager.Inst.Turrets[m_currentTurretIndex].GetComponent<Renderer>().sharedMaterial;
+            UpdatePistole();
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
@@ -119,7 +117,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             {
                 m_currentTurretIndex = GameManager.Inst.Turrets.Count-1;
             }
-            m_pistole.GetComponent<Renderer>().material = GameManager.Inst.Turrets[m_currentTurretIndex].GetComponent<Renderer>().sharedMaterial;
+            UpdatePistole();
         }
 
         if (Input.GetButtonDown("Show Game State"))
@@ -138,5 +136,21 @@ public class ONEPlayerInteraction : MonoBehaviour
     /********  PROTECTED        ************************/
 
     /********  PRIVATE          ************************/
+    void UpdatePistole()
+    {
+        if (m_turretSelector)
+        {
+            Transform currentTower = m_turretSelector.Find("tower");
+            if (currentTower)
+                Destroy(currentTower.gameObject);
+            GameObject tower = Instantiate(GameManager.Inst.Turrets[m_currentTurretIndex]);
+            tower.name = "tower";
+            tower.transform.parent = m_turretSelector;
+            tower.transform.position = m_turretSelector.position;
+            tower.transform.rotation = m_turretSelector.rotation;
+            tower.transform.localScale = new Vector3(1,1,1);
+        }
+
+    }
     #endregion
 }

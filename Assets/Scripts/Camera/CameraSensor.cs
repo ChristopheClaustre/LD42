@@ -50,10 +50,10 @@ public class CameraSensor : MonoBehaviour
                     {
                         PreviousFaceHit.layer = 8;
                     }
-                    objectHit.gameObject.layer = 0;
                     PreviousFaceHit = objectHit.gameObject;
-                    ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit.transform.parent.gameObject;
                 }
+                objectHit.gameObject.layer = 0;
+                ONEPlayerInteraction.Instance.CurrentInteractiveObject = PreviousFaceHit.transform.parent.gameObject;
             }
             else if(objectHit.gameObject.tag == "TpTurret")
             {
