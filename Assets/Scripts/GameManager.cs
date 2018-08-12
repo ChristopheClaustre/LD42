@@ -202,11 +202,14 @@ public class GameManager :
         m_enemies.Remove(p_enemy);
         p_enemy.GetComponent<Enemy>().Hit(9001);
 
-        int index = Random.Range(0, m_plateforms.Count);
-        GameObject toDestroy = m_plateforms[index];
-        m_plateforms.RemoveAt(index);
+        if (m_plateforms.Count > 0)
+        {
+            int index = Random.Range(0, m_plateforms.Count);
+            GameObject toDestroy = m_plateforms[index];
+            m_plateforms.RemoveAt(index);
 
-        Destroy(toDestroy);
+            Destroy(toDestroy);
+        }
     }
 
     public void Defeat()
