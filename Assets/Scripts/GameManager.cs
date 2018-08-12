@@ -98,7 +98,6 @@ public class GameManager :
 
     //Audio
     public List<AudioClip> m_musicTracks = new List<AudioClip>();
-    private int m_musicTracksSelected = 0;
 
     private List<GameObject> m_enemies = new List<GameObject>();
     private List<GameObject> m_plateforms = new List<GameObject>();
@@ -107,8 +106,8 @@ public class GameManager :
 
     private GameState m_state;
 
-    public Camera m_cameraStartMenu;
-    public Camera m_cameraDefeatMenu;
+    public GameObject m_cameraStartMenu;
+    public GameObject m_cameraDefeatMenu;
 
     private GameObject m_player;
 
@@ -125,14 +124,14 @@ public class GameManager :
     {
         m_instance = this;
         Cursor.visible = false;
-        SoundManager.Instance.PlaySingle(m_musicTracks[m_musicTracksSelected]);
+        SoundManager.Instance.PlaySingle(m_musicTracks[1]);
 
         m_state = GameState.Start;
 
         m_player = GameObject.FindGameObjectWithTag("MainCamera");
 
         m_player.SetActive(false);
-        m_cameraStartMenu.enabled = true;
+        m_cameraStartMenu.SetActive(true);
 
         // update plateforms list
         m_plateforms.AddRange(GameObject.FindGameObjectsWithTag("Plateform"));
@@ -158,7 +157,7 @@ public class GameManager :
                 ManageRound();
                 if (m_enemies.Count == 0)
                 {
-                    // TODO: changeSound
+                    SoundManager.Instance.PlaySingle(m_musicTracks[1]);
                     m_state = GameState.Waiting;
                 }
                 if (m_plateforms.Count == 0)
@@ -171,7 +170,7 @@ public class GameManager :
                 ManageRound();
                 if (m_enemies.Count > 0)
                 {
-                    // TODO: changeSound
+                    SoundManager.Instance.PlaySingle(m_musicTracks[0]);
                     m_state = GameState.Fighting;
                 }
                 break;
@@ -203,13 +202,13 @@ public class GameManager :
     public void Defeat()
     {
         m_player.SetActive(false);
-        m_cameraDefeatMenu.enabled = true;
+        m_cameraDefeatMenu.SetActive(true);
     }
 
     public void StartGame()
     {
         m_player.SetActive(true);
-        m_cameraStartMenu.enabled = false;
+        m_cameraStartMenu.SetActive(false);
     }
 
     /********  PROTECTED        ************************/
