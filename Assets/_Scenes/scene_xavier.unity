@@ -517,11 +517,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 114074674418371162, guid: acb61d6798210cb47a50c28a8bd615c7,
-        type: 2}
-      propertyPath: m_musicTracks.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 4737419995956592, guid: acb61d6798210cb47a50c28a8bd615c7, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -554,23 +549,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114074674418371162, guid: acb61d6798210cb47a50c28a8bd615c7,
-        type: 2}
-      propertyPath: m_turret.Array.data[0]
-      value: 
-      objectReference: {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909,
-        type: 2}
-    - target: {fileID: 114074674418371162, guid: acb61d6798210cb47a50c28a8bd615c7,
-        type: 2}
-      propertyPath: m_musicTracks.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
-    - target: {fileID: 114074674418371162, guid: acb61d6798210cb47a50c28a8bd615c7,
-        type: 2}
-      propertyPath: m_turret.Array.data[1]
-      value: 
-      objectReference: {fileID: 1452261297117782, guid: 438f438f71ecf5240bf8928b9096c3de,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: acb61d6798210cb47a50c28a8bd615c7, type: 2}
   m_IsPrefabAsset: 0

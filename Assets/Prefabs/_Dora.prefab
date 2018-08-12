@@ -55,6 +55,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_musicTracks:
+  - {fileID: 8300000, guid: f4d587f5f5049e249898a8d2abbcd7ae, type: 3}
   - {fileID: 8300000, guid: d140e9809f0dcd74f8592ee3f85433e9, type: 3}
   m_turret:
   - {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
