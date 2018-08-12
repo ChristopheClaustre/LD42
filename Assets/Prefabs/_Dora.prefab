@@ -61,8 +61,14 @@ MonoBehaviour:
   - {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
   - {fileID: 1452261297117782, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
   - {fileID: 1723415602914080, guid: bb1c75c12ffbc4b4d98eb0c6e5089b79, type: 2}
+  m_availableEnemies:
+  - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
+  - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
+  - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
   m_cameraStartMenu: {fileID: 0}
   m_cameraDefeatMenu: {fileID: 0}
+  m_prefabFog: {fileID: 1600964260823388, guid: a64a4e7d34d14724c8863b8ea638e866,
+    type: 2}
 --- !u!114 &114265948134835556
 MonoBehaviour:
   m_ObjectHideFlags: 1
