@@ -47,6 +47,20 @@ public class ResourceCostDisplay : MonoBehaviour
                 m_ResourceCostText.text = "-" + cost.ToString();
             }
         }
+        else if (currentObject && (currentObject.tag == "TpTurret" || currentObject.tag == "Turret"))
+        {
+            currentObject = currentObject.transform.parent.gameObject;
+            int turretLevel = currentObject.transform.GetComponent<Turret>().GetCurrentLevel();
+            if(turretLevel < currentObject.transform.GetComponent<Turret>().MaxLevel())
+            {
+                int cost = currentObject.transform.GetComponent<Turret>().NextLevelCost(turretLevel);
+                m_ResourceCostText.text = "-" + cost.ToString();
+            }
+            else
+            {
+                m_ResourceCostText.text = "";
+            }
+        }
         else
         {
             m_ResourceCostText.text = "";

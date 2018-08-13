@@ -83,9 +83,19 @@ public class ONEPlayerInteraction : MonoBehaviour
         m_gunCooldown -= Time.deltaTime;
         if (m_currentInteractiveObject 
             && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret")
-            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f) )
+            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f) 
+            )
         {
-            m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = true;
+            GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
+            int turretLevel = currentTurret.transform.GetComponent<Turret>().GetCurrentLevel();
+            if (turretLevel < currentTurret.transform.GetComponent<Turret>().MaxLevel())
+            {
+                m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = true;
+            }
+            else
+            {
+                m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = false;
+            }
         }
         else
         {
@@ -113,10 +123,21 @@ public class ONEPlayerInteraction : MonoBehaviour
                     m_ErrorSound.Play();
                 }
             }
-            else
+        }
+
+        if (Input.GetButton("Fire1"))
+        {
+            if (m_gunCooldown < 0)
             {
-                if (m_gunCooldown < 0)
+                if (!m_currentInteractiveObject)
                 {
+                    m_pew.Play();
+                    m_pewSound.Play();
+                    m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
+                }
+                else if (m_currentInteractiveObject.tag != "TpTurret")
+                {
+
                     if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
                     {
                         m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
@@ -127,22 +148,9 @@ public class ONEPlayerInteraction : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButton("Fire1"))
-        {
-            if (m_gunCooldown < 0)
-            {
-                if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
-                {
-                    m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
-                }
-                m_pew.Play();
-                m_pewSound.Play();
-                m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
-            }
-        }
 
 
-            if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2"))
         {
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
             {
@@ -153,10 +161,14 @@ public class ONEPlayerInteraction : MonoBehaviour
                     if(newTurret.transform.GetComponent<Turret>())
                     {
                         int cost = newTurret.transform.GetComponent<Turret>().m_data.m_cost;
-                        if (cost < GameManager.Inst.Resource)
+                        if (cost <= GameManager.Inst.Resource)
                         {
                             GameManager.Inst.RemoveResources(cost);
                             selectedPlatforme.ConstructTurret(m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret);
+                        }
+                        else
+                        {
+                            m_ErrorSound.Play();
                         }
                     }
                 }
@@ -164,21 +176,21 @@ public class ONEPlayerInteraction : MonoBehaviour
             //Upgrade turret
             if (m_currentInteractiveObject && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret"))
             {
-                if ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f)
+                GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
+                if ((currentTurret.transform.position - transform.position).magnitude < 2.0f)
                 {
-
-                    //int cost = m_currentInteractiveObject.transform.GetComponent<Turret>().m_data.m_cost;
-                    //if (cost < GameManager.Inst.Resource
-                    //    && m_currentInteractiveObject.transform.GetComponent<Turret>().CanBeUpgrade)
-                    //{
-                    //    GameManager.Inst.RemoveResources(cost);
-                    //    //m_currentInteractiveObject.transform.GetComponent<Turret>().Upgrade;
-                    //}
-                    //else
-                    //{
-                    //    m_ErrorSound.Play();
-                    //}
-                    Debug.Log("Turret upgrade");
+                    int turretLevel = currentTurret.transform.GetComponent<Turret>().GetCurrentLevel();
+                    int cost = currentTurret.transform.GetComponent<Turret>().NextLevelCost(turretLevel);
+                    if (cost <= GameManager.Inst.Resource
+                        && turretLevel < currentTurret.transform.GetComponent<Turret>().MaxLevel())
+                    {
+                        GameManager.Inst.RemoveResources(cost);
+                        currentTurret.transform.GetComponent<Turret>().NextLevel();
+                    }
+                    else
+                    {
+                        m_ErrorSound.Play();
+                    }
                     
                 }
             }

@@ -148,9 +148,25 @@ public abstract class Turret :
     }
 
     // get the first level cost
+    public int GetCurrentLevel()
+    {
+        return m_level;
+    }
+
+    // get the first level cost
     public int MaxLevel()
     {
-        return GetLevelList().Length;
+        return GetLevelList().Length - 1;
+    }
+
+    public void NextLevel()
+    {
+        m_level++;
+
+        var lists = GetLevelList();
+        m_data = lists[m_level];
+
+        m_levelsUI.Value = m_level;
     }
 
     /********  PROTECTED        ************************/
@@ -170,16 +186,6 @@ public abstract class Turret :
     {
         if (m_cooldownBar)
             m_cooldownBar.m_value = 1.0f - (m_cooldown / m_data.m_cooldown);
-    }
-
-    private void NextLevel()
-    {
-        m_level++;
-
-        var lists = GetLevelList();
-        m_data = lists[m_level];
-
-        m_levelsUI.Value = m_level;
     }
 
     #endregion
