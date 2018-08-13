@@ -150,7 +150,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4659191753681898, guid: 3539ea493c90dd84599fca04986e9278, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3539ea493c90dd84599fca04986e9278, type: 2}
@@ -195,7 +195,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &107684363
 Prefab:
@@ -234,7 +234,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4041247801527850, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 635b6630cadfd4c43adee5f381b0ebac, type: 2}
@@ -333,120 +333,10 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4594219508101270, guid: ad0f77213e2cccf418e62afcf70f278e, type: 2}
       propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 1014401561864586, guid: ad0f77213e2cccf418e62afcf70f278e, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1023090045273556, guid: ad0f77213e2cccf418e62afcf70f278e, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114760492675682390, guid: ad0f77213e2cccf418e62afcf70f278e,
-        type: 2}
-      propertyPath: m_Text
-      value: 'Foes detected: >9000
-
-        Defenses plateforms remaining: 80
-
-        Will run out of space for turret in: 3 min(s)
-
-
-        [T.O.W.E.L] launch required.
-
-
-        \usr\Farra\Floppy\DeepThought> cd ../TOWEL
-
-
-        \usr\Farra\Floppy\TOWEL> launch
-
-        Welcome to the ''Turret Organiser for Warfare Environements and Logistics''
-        system.
-
-        You will be able to control the [T.O.W.E.L] in a few seconds.
-
-        Please wait...
-
-
-        Ready. Do you confirm the launch ? [y/n] y
-
-        Carrier launched !
-
-
-        Carrier destroyed.
-
-        Core fully corrupted after $round$ enemy assault(s).
-
-
-        \usr\Farra\Floppy\DeepThought> status
-
-        Receiving informations (0o/s): <1% [0o/0o]
-
-        Error: connection to Core Lost
-
-
-        Status: <color=#00ffffff>Timeline Lost</color>
-
-        Back into the breach?
-
-        Press <color=#800080ff><Esc></color> to terminate the process and close the
-        window
-
-
-        \usr\Farra\Floppy\DeepThought> cd ..\BackToTheFuture
-
-
-        \usr\Farra\Floppy\BackToTheFuture> launch_'
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad0f77213e2cccf418e62afcf70f278e, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1014730048
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -2.0580482
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.047
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -11.862
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4715446480459702, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1027901201641660, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
-      propertyPath: m_Name
-      value: EnergyTurret (1)
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
   m_IsPrefabAsset: 0
 --- !u!1001 &1064045411
 Prefab:
@@ -485,12 +375,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4741906153562454, guid: 5ef01f454a70df14e9fbed6175470d03, type: 2}
       propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 20956570151464194, guid: 5ef01f454a70df14e9fbed6175470d03,
-        type: 2}
-      propertyPath: m_ClearFlags
-      value: 1
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5ef01f454a70df14e9fbed6175470d03, type: 2}
@@ -532,7 +417,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4082172329775922, guid: 795326a240d52844fb5ded4f74ee128a, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 795326a240d52844fb5ded4f74ee128a, type: 2}
@@ -603,5 +488,5 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
