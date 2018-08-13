@@ -29,6 +29,7 @@ public class SettingsManager :
         public float m_playerSpeed;
         public float m_playerAngularSpeed;
         public int m_gunDamage;
+        public float m_gunCooldown;
         public int m_startingResource;
         public int m_resourceGainSpeed;
         public int m_resourceGainQuantity;
