@@ -43,7 +43,7 @@ public class ResourceCostDisplay : MonoBehaviour
             GameObject newTurret = m_towel.GetComponent<TurretSelector>().GetRealTurret;
             if (newTurret.transform.GetComponent<Turret>())
             {
-                int cost = newTurret.transform.GetComponent<Turret>().m_data.m_cost;
+                int cost = newTurret.transform.GetComponent<Turret>().FirstLevelCost();
                 m_ResourceCostText.text = "-" + cost.ToString();
             }
         }
@@ -54,6 +54,7 @@ public class ResourceCostDisplay : MonoBehaviour
             if(turretLevel < currentObject.transform.GetComponent<Turret>().MaxLevel())
             {
                 int cost = currentObject.transform.GetComponent<Turret>().NextLevelCost(turretLevel);
+
                 m_ResourceCostText.text = "-" + cost.ToString();
             }
             else

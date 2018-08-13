@@ -160,7 +160,7 @@ public class ONEPlayerInteraction : MonoBehaviour
                     GameObject newTurret = m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret;
                     if(newTurret.transform.GetComponent<Turret>())
                     {
-                        int cost = newTurret.transform.GetComponent<Turret>().m_data.m_cost;
+                        int cost = newTurret.transform.GetComponent<Turret>().FirstLevelCost();
                         if (cost <= GameManager.Inst.Resource)
                         {
                             GameManager.Inst.RemoveResources(cost);

@@ -137,7 +137,7 @@ public abstract class Turret :
     // get the next level cost
     public int NextLevelCost(int p_currentLevel)
     {
-        if (p_currentLevel+1 >= MaxLevel()) return 0;
+        if (p_currentLevel+1 > MaxLevel()) return 0;
         else return GetLevelList()[p_currentLevel+1].m_cost;
     }
 
