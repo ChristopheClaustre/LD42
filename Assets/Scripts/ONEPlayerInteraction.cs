@@ -127,7 +127,22 @@ public class ONEPlayerInteraction : MonoBehaviour
                 }
             }
         }
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButton("Fire1"))
+        {
+            if (m_gunCooldown < 0)
+            {
+                if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
+                {
+                    m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
+                }
+                m_pew.Play();
+                m_pewSound.Play();
+                m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
+            }
+        }
+
+
+            if (Input.GetButtonDown("Fire2"))
         {
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
             {
