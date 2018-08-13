@@ -1862,6 +1862,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffa0da24db5c064bbd128b16ec29dee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_data:
+    m_cost: 5
+    m_cooldown: 0.5
   m_cooldownBar: {fileID: 114676333981932384}
   m_canon: {fileID: 1190988340197906}
   m_pewSound: {fileID: 82053478089594170}
