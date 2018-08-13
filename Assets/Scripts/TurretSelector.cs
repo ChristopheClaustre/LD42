@@ -88,13 +88,13 @@ public class TurretSelector: MonoBehaviour
 
     public void PreviousTurret()
     {
-        if (m_currentTurretIndex < m_turrets.Count - 1 && !m_activeUpgrader)
+        if (m_currentTurretIndex > 0 && !m_activeUpgrader)
         {
-            m_currentTurretIndex++;
+            m_currentTurretIndex--;
         }
         else
         {
-            m_currentTurretIndex = 0;
+            m_currentTurretIndex = m_turrets.Count - 1;
         }
     }
     /********  OUR MESSAGES     ************************/
