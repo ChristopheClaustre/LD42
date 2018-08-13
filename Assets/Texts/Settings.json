@@ -1,9 +1,9 @@
 {
     "m_rayonSphere": 20,
-    "m_rayonExternalSphere": 22,
-    "m_rayonCore": 1.5,
-    "m_initialPlateformCount": 50,
-    "m_minimalDistanceBetweenPlateform": 8,
+    "m_rayonExternalSphere": 25,
+    "m_rayonCore": 2,
+    "m_initialPlateformCount": 80,
+    "m_minimalDistanceBetweenPlateform": 5,
     "m_roundDuration": 20,
     "m_playerSpeed": 10.0,
     "m_playerAngularSpeed": 100.0,
