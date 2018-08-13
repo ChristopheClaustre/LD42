@@ -1118,6 +1118,7 @@ MonoBehaviour:
   - {fileID: 1258697194568380, guid: 0c29b57a7b7ca5946bfba49c26736044, type: 2}
   - {fileID: 1350625687629230, guid: 34599ecab93a30846b48c7de3672e417, type: 2}
   - {fileID: 1854094246264754, guid: 8763c4f5112798546aa6855a6f314e16, type: 2}
+  m_upgrader: {fileID: 1917283037896802, guid: ba4df5cb6b7d5674f95a4ba9f1592b74, type: 2}
 --- !u!114 &114172109922338342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1200,7 +1201,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pewSound: {fileID: 82812078588272392}
   m_pew: {fileID: 198655287774215896}
-  m_beammeup: {fileID: 82710765247054832}
 --- !u!114 &114566106681121306
 MonoBehaviour:
   m_ObjectHideFlags: 1
