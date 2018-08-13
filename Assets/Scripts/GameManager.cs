@@ -209,7 +209,7 @@ public class GameManager :
                 }
                 if (Input.GetButtonDown("Submit"))
                 {
-                    SceneManager.LoadScene("cricri_scene");
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
                 break;
         }
