@@ -127,6 +127,8 @@ public class GameManager :
 
     public GameObject m_prefabFog;
 
+    public AudioSource m_warning;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -261,6 +263,7 @@ public class GameManager :
     {
         ++m_round;
         Debug.Log("Beginning of round " + (m_round + 1));
+        m_warning.Play();
 
         // Create fogs
         if (m_round < EnemiesDataManager.Inst.m_firstRounds.Length)

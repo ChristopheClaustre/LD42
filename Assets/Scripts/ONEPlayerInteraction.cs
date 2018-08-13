@@ -57,6 +57,9 @@ public class ONEPlayerInteraction : MonoBehaviour
     [SerializeField]
     private ParticleSystem m_pew;
 
+    [SerializeField]
+    private AudioSource m_beammeup;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -113,6 +116,7 @@ public class ONEPlayerInteraction : MonoBehaviour
 
                     // reset cooldown
                     teleporter.TeleporterUsed();
+                    m_beammeup.Play();
                 }
             }
 
