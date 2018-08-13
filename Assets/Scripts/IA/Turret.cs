@@ -116,6 +116,8 @@ public abstract class Turret :
                 UpdateBar();
                 break;
         }
+
+        UpdateMe(m_state == State.CanShoot, m_cooldown);
     }
 
     /********  OUR MESSAGES     ************************/
@@ -130,11 +132,15 @@ public abstract class Turret :
     // Retrieve data from TurretsDataManager
     protected abstract void GetData();
 
+    // called at the end of turret update
+    protected virtual void UpdateMe(bool p_canShoot, float p_cooldown) { }
+
     /********  PRIVATE          ************************/
 
     private void UpdateBar()
     {
-        m_cooldownBar.m_value = 1.0f - (m_cooldown / m_data.m_cooldown);
+        if (m_cooldownBar)
+            m_cooldownBar.m_value = 1.0f - (m_cooldown / m_data.m_cooldown);
     }
 
     #endregion
