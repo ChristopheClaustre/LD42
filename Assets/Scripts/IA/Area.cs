@@ -72,7 +72,7 @@ public class Area :
             x => {
                 // in range ?
                 float distance = Vector3.Distance(x.transform.position, transform.position);
-                return (distance > m_damageData.m_radius);
+                return (distance < m_damageData.m_radius);
             });
 
         foreach (GameObject reachable in reachables)
