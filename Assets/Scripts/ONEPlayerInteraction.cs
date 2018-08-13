@@ -80,7 +80,17 @@ public class ONEPlayerInteraction : MonoBehaviour
                 PlatformeFace selectedPlatforme = m_currentInteractiveObject.GetComponent<PlatformeFace>();
                 if (selectedPlatforme)
                 {
-                    selectedPlatforme.ConstructTurret(m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret);
+                    GameObject newTurret = m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret;
+                    if(newTurret.transform.GetComponent<Turret>())
+                    {
+                        int cost = newTurret.transform.GetComponent<Turret>().m_data.m_cost;
+                        if (cost < GameManager.Inst.Resource)
+                        {
+                            GameManager.Inst.RemoveResources(cost);
+                            selectedPlatforme.ConstructTurret(m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret);
+                        }
+                    }
+                    
                 }
             }
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
