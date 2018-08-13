@@ -77,6 +77,14 @@ public class GameManager :
         }
     }
 
+    public int Resource
+    {
+        get
+        {
+            return m_resources;
+        }
+    }
+
     #endregion
     #region Constants
     /***************************************************/
@@ -113,6 +121,10 @@ public class GameManager :
 
     private GameObject m_player;
 
+    //Resources
+    private int m_resources;
+    private float m_resourceTimer = 0;
+
     public GameObject m_prefabFog;
 
     #endregion
@@ -138,6 +150,8 @@ public class GameManager :
         m_player.SetActive(false);
         m_cameraStartMenu.SetActive(true);
 
+        m_resourceTimer = SettingsManager.Inst.m_resourceGainSpeed;
+        m_resources = SettingsManager.Inst.m_startingResource;
         // update plateforms list
         m_plateforms.AddRange(GameObject.FindGameObjectsWithTag("Plateform"));
     }
@@ -165,6 +179,7 @@ public class GameManager :
                 break;
             case GameState.Fighting:
                 ManageRound();
+                ManageResources();
                 if (m_enemies.Count == 0)
                 {
                     SoundManager.Instance.PlaySingle(m_musicTracks[1]);
@@ -178,6 +193,7 @@ public class GameManager :
                 break;
             case GameState.Waiting:
                 ManageRound();
+                ManageResources();
                 if (m_enemies.Count > 0)
                 {
                     SoundManager.Instance.PlaySingle(m_musicTracks[0]);
@@ -222,6 +238,19 @@ public class GameManager :
     {
         m_player.SetActive(true);
         m_cameraStartMenu.SetActive(false);
+    }
+
+    public void addResources(int p_quantity)
+    {
+        m_resources += p_quantity;
+    }
+
+    public void RemoveResources(int p_quantity)
+    {
+        if(m_resources - p_quantity >= 0)
+        {
+            m_resources -= p_quantity;
+        }
     }
 
     /********  PROTECTED        ************************/
@@ -277,6 +306,17 @@ public class GameManager :
         m_nextRoundIn -= Time.deltaTime;
         if (m_nextRoundIn <= 0)
             NextRound();
+    }
+
+    private void ManageResources()
+    {
+        m_resourceTimer -= Time.deltaTime;
+        if (m_resourceTimer < 0)
+        {
+            m_resources = m_resources + SettingsManager.Inst.m_resourceGainQuantity;
+            m_resourceTimer = SettingsManager.Inst.m_resourceGainSpeed;
+        }
+        
     }
 
     #endregion
