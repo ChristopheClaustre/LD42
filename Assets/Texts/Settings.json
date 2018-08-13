@@ -1,16 +1,16 @@
 {
     "m_rayonSphere": 20,
-    "m_rayonExternalSphere": 25,
+    "m_rayonExternalSphere": 32,
     "m_rayonCore": 2,
     "m_initialPlateformCount": 80,
     "m_minimalDistanceBetweenPlateform": 5,
-    "m_roundDuration": 60,
+    "m_roundDuration": 120,
     "m_playerSpeed": 10.0,
     "m_playerAngularSpeed": 100.0,
 	"m_gunDamage": 2,
 	"m_gunCooldown": 0.3,
 	"m_startingResource": 50,
-    "m_resourceGainSpeed": 1,
+    "m_resourceGainSpeed": 0.5,
 	"m_resourceGainQuantity": 1,
 	
 	"m_mapGenerationCheck": 8000
