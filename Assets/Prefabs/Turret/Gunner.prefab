@@ -243,7 +243,6 @@ GameObject:
   - component: {fileID: 4414737339659856}
   - component: {fileID: 198091118199481738}
   - component: {fileID: 199359932656696984}
-  - component: {fileID: 122870100790263828}
   m_Layer: 0
   m_Name: Halo
   m_TagString: Untagged
@@ -975,7 +974,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876613365716226}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -4.341, y: -2.451, z: 0.65}
+  m_LocalPosition: {x: -2.747, y: -2.451, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4313913325614206}
@@ -2526,17 +2525,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!122 &122870100790263828
-Halo:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1261174928182114}
-  m_Enabled: 1
-  m_Color:
-    serializedVersion: 2
-    rgba: 4286611584
-  m_Size: 0.2
 --- !u!135 &135226786280747672
 SphereCollider:
   m_ObjectHideFlags: 1
