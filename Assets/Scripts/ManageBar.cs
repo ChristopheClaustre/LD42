@@ -72,6 +72,9 @@ public class ManageBar :
 
         m_bar.localScale = new Vector3(m_value, 1, 1);
         m_canvas.LookAt(GameManager.Inst.Player.transform, GameManager.Inst.Player.transform.up);
+
+        var distance = Vector3.Distance(GameManager.Inst.Player.transform.position, transform.position);
+        m_canvas.transform.localScale = Vector3.one * Mathf.Clamp01(distance / 10.0f);
     }
 
     /********  OUR MESSAGES     ************************/
