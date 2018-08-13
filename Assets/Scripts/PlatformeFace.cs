@@ -56,6 +56,8 @@ public class PlatformeFace : MonoBehaviour {
     {
         if (! m_tower)
         {
+            Destroy(transform.Find("EmptyFace").gameObject);
+
             m_tower = Instantiate(p_turrets);
             m_tower.transform.parent = this.transform;
             m_tower.transform.position = this.transform.position;

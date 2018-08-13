@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 23391103776773326}
   - component: {fileID: 64516733907829250}
   m_Layer: 8
-  m_Name: DownFaceEmpty
+  m_Name: EmptyFace
   m_TagString: PlatformeFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -124,7 +124,7 @@ GameObject:
   - component: {fileID: 23874831642932002}
   - component: {fileID: 64661601408384246}
   m_Layer: 8
-  m_Name: UpFaceEmpty
+  m_Name: EmptyFace
   m_TagString: PlatformeFace
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
