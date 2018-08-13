@@ -49,6 +49,12 @@ public class Gunner :
 
     private TurretsDataManager.DamageTurretData m_damageData = null;
 
+    [SerializeField]
+    private AudioSource m_pewSound;
+
+    [SerializeField]
+    private ParticleSystem m_pew;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -109,6 +115,9 @@ public class Gunner :
     {
         m_canon.transform.LookAt(p_enemy.transform);
         p_enemy.GetComponent<Enemy>().Hit(m_damageData.m_hit);
+
+        m_pew.Play();
+        m_pewSound.Play();
     }
 
     #endregion
