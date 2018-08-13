@@ -1,15 +1,15 @@
 {
 	"m_enemies": [
 		{
-			"m_health": 50,
-			"m_velocity": 0.3
+			"m_health": 500,
+			"m_velocity": 0.4
 		},
 		{
-			"m_health": 30,
+			"m_health": 300,
 			"m_velocity": 0.7
 		},
 		{
-			"m_health": 40,
+			"m_health": 400,
 			"m_velocity": 0
 		}
 	],

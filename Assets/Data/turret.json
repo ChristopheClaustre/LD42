@@ -4,35 +4,35 @@
 			"m_cost": 30,
 			"m_cooldown": 1,
 			
-			"m_hit": 8,
+			"m_hit": 80,
 			"m_radius": 12
 		},
 		{
 			"m_cost": 40,
 			"m_cooldown": 0.9,
 			
-			"m_hit": 10,
+			"m_hit": 100,
 			"m_radius": 12
 		},
 		{
 			"m_cost": 60,
 			"m_cooldown": 0.7,
 			
-			"m_hit": 15,
+			"m_hit": 150,
 			"m_radius": 12
 		},
 		{
 			"m_cost": 120,
 			"m_cooldown": 0.6,
 			
-			"m_hit": 30,
+			"m_hit": 300,
 			"m_radius": 15
 		},
 		{
 			"m_cost": 300,
 			"m_cooldown": 0.5,
 			
-			"m_hit": 50,
+			"m_hit": 500,
 			"m_radius": 20
 		}
 	],
@@ -41,22 +41,22 @@
 			"m_cost": 40,
 			"m_cooldown": 0.3,
 			
-			"m_hit": 1,
-			"m_radius": 5
-		},
-		{
-			"m_cost": 70,
-			"m_cooldown": 0.3,
-			
-			"m_hit": 3,
-			"m_radius": 8
-		},
-		{
-			"m_cost": 150,
-			"m_cooldown": 0.3,
-			
 			"m_hit": 5,
-			"m_radius": 10
+			"m_radius": 3
+		},
+		{
+			"m_cost": 80,
+			"m_cooldown": 0.3,
+			
+			"m_hit": 7,
+			"m_radius": 4
+		},
+		{
+			"m_cost": 200,
+			"m_cooldown": 0.3,
+			
+			"m_hit": 15,
+			"m_radius": 5
 		}
 	],
 	"m_tpLevels": [
