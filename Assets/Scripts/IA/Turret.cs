@@ -96,7 +96,7 @@ public abstract class Turret :
         UpdateBar();
 
         m_levelsUI.Value = m_level+1;
-        m_levelsAvailableUI.Value = MaxLevel();
+        m_levelsAvailableUI.Value = MaxLevel()+1;
     }
 
     // Update is called once per frame
