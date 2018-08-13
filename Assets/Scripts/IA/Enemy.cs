@@ -76,8 +76,12 @@ public class Enemy :
         if (m_initial.m_velocity != 0)
             transform.LookAt(Vector3.zero);
 
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
+        Rigidbody r = GetComponent<Rigidbody>();
+        if (r)
+        {
+            r.velocity = Vector3.zero;
+            r.angularVelocity = Vector3.zero;
+        }
     }
 
     /********  OUR MESSAGES     ************************/
