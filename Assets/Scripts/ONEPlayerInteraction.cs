@@ -49,6 +49,7 @@ public class ONEPlayerInteraction : MonoBehaviour
     private Transform m_turretSelector;
     private int m_selectedTower;
 
+    private int m_gameStateUi;
 
     #endregion
     #region Methods
@@ -109,13 +110,29 @@ public class ONEPlayerInteraction : MonoBehaviour
             m_turretSelector.gameObject.GetComponent<TurretSelector>().PreviousTurret();
         }
 
-        if (Input.GetButtonDown("Show Game State"))
+        if (Input.GetButtonDown("Switch Game State"))
         {
-            Camera.main.cullingMask |= LayerMask.GetMask("GameState");
-        }
-        else if (Input.GetButtonUp("Show Game State"))
-        {
-            Camera.main.cullingMask &= ~ LayerMask.GetMask("GameState");
+            switch (m_gameStateUi)
+            {
+                case 0:
+                    Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
+                    m_gameStateUi++;
+                    break;
+                case 1:
+                    Camera.main.cullingMask |= LayerMask.GetMask("HealthBar");
+                    Camera.main.cullingMask &= ~ LayerMask.GetMask("CooldownBar");
+                    m_gameStateUi++;
+                    break;
+                case 2:
+                    Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
+                    m_gameStateUi++;
+                    break;
+                default:
+                    Camera.main.cullingMask &= ~LayerMask.GetMask("CooldownBar");
+                    Camera.main.cullingMask &= ~LayerMask.GetMask("HealthBar");
+                    m_gameStateUi = 0;
+                    break;
+            }
         }
     }
     /********  OUR MESSAGES     ************************/
