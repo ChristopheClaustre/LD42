@@ -95,7 +95,7 @@ public abstract class Turret :
 
         UpdateBar();
 
-        m_levelsUI.Value = m_level;
+        m_levelsUI.Value = m_level+1;
         m_levelsAvailableUI.Value = MaxLevel();
     }
 
@@ -166,7 +166,7 @@ public abstract class Turret :
         var lists = GetLevelList();
         m_data = lists[m_level];
 
-        m_levelsUI.Value = m_level;
+        m_levelsUI.Value = m_level+1;
     }
 
     /********  PROTECTED        ************************/
