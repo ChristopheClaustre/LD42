@@ -46,6 +46,8 @@ public class Area :
 
     private TurretsDataManager.DamageTurretData m_damageData = null;
 
+    public GameObject m_effects;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -64,6 +66,8 @@ public class Area :
     {
         m_data = TurretsDataManager.Inst.m_areaLevels[0];
         m_damageData = TurretsDataManager.Inst.m_areaLevels[0];
+
+        m_effects.transform.localScale = Vector3.one * m_damageData.m_radius;
     }
 
     protected override bool TryToShoot()
