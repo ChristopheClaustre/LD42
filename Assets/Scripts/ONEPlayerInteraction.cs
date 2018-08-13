@@ -85,9 +85,16 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
             {
-                Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
-                deplacement = deplacement.normalized * (deplacement.magnitude-2);
-                transform.position = transform.position + deplacement;
+                var teleporter = m_currentInteractiveObject.transform.parent.gameObject.GetComponent<Teleporter>();
+                if (teleporter.TurretState == Turret.State.CanShoot)
+                {
+                    Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
+                    deplacement = deplacement.normalized * (deplacement.magnitude - 2);
+                    transform.position = transform.position + deplacement;
+
+                    // reset cooldown
+                    teleporter.TeleporterUsed();
+                }
             }
 
         }
