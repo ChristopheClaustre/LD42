@@ -71,7 +71,7 @@ public class ManageBar :
         if (!m_bar || !m_canvas) return;
 
         m_bar.localScale = new Vector3(m_value, 1, 1);
-        m_canvas.LookAt(GameManager.Inst.Player.transform);
+        m_canvas.LookAt(GameManager.Inst.Player.transform, GameManager.Inst.Player.transform.up);
     }
 
     /********  OUR MESSAGES     ************************/
