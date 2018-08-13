@@ -51,6 +51,12 @@ public class ONEPlayerInteraction : MonoBehaviour
 
     private int m_gameStateUi;
 
+    [SerializeField]
+    private AudioSource m_pewSound;
+
+    [SerializeField]
+    private ParticleSystem m_pew;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -69,6 +75,8 @@ public class ONEPlayerInteraction : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
+            m_pew.Play();
+            m_pewSound.Play();
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
             {
                 m_currentInteractiveObject.GetComponent<Enemy>().Hit(2/*TODO USE DATA*/);
