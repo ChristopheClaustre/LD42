@@ -203,6 +203,10 @@ public class GameManager :
                 }
                 break;
             case GameState.Defeat:
+                if (Input.GetButtonDown("Quit"))
+                {
+                    Application.Quit();
+                }
                 if (Input.GetButtonDown("Submit"))
                 {
                     SceneManager.LoadScene("cricri_scene");
