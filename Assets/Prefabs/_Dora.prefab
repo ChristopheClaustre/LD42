@@ -63,9 +63,9 @@ MonoBehaviour:
   - {fileID: 1027901201641660, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
   - {fileID: 1738900639246306, guid: 0d981ea4de73e4645ac61598c075a596, type: 2}
   m_availableEnemies:
-  - {fileID: 1797092767981506, guid: 41ae0411213270a4ca0cc4d03d76ed4b, type: 2}
-  - {fileID: 1332714100407950, guid: cba5e220f4fd4714597734c284f2835d, type: 2}
-  - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
+  - {fileID: 1797092767981506, guid: c9c36499064631b4bbf40ee2178c7b5a, type: 2}
+  - {fileID: 1332714100407950, guid: 6abd589e5111af146aa19902831f926e, type: 2}
+  - {fileID: 1711839186896042, guid: d4a91705deaceef4ba76a5144a4d70b8, type: 2}
   m_cameraStartMenu: {fileID: 0}
   m_cameraDefeatMenu: {fileID: 0}
   m_prefabFog: {fileID: 1600964260823388, guid: a64a4e7d34d14724c8863b8ea638e866,
