@@ -67,8 +67,15 @@ public abstract class Turret :
 
     private float m_cooldown = 0;
 
+    private int m_level = 0;
+
     [SerializeField]
     private ManageBar m_cooldownBar;
+
+    [SerializeField]
+    private ShowLevels m_levelsUI;
+    [SerializeField]
+    private ShowLevels m_levelsAvailableUI;
 
     #endregion
     #region Methods
@@ -81,12 +88,15 @@ public abstract class Turret :
     // Use this for initialization
     private void Start()
     {
-        GetData();
+        m_data = GetLevelList()[0];
 
         m_state = State.Cooldown;
         m_cooldown = m_data.m_cooldown;
 
         UpdateBar();
+
+        m_levelsUI.Value = m_level;
+        m_levelsAvailableUI.Value = MaxLevel();
     }
 
     // Update is called once per frame
@@ -124,23 +134,52 @@ public abstract class Turret :
 
     /********  PUBLIC           ************************/
 
+    // get the next level cost
+    public int NextLevelCost(int p_currentLevel)
+    {
+        if (p_currentLevel+1 >= MaxLevel()) return 0;
+        else return GetLevelList()[p_currentLevel+1].m_cost;
+    }
+
+    // get the first level cost
+    public int FirstLevelCost()
+    {
+        return GetLevelList()[0].m_cost;
+    }
+
+    // get the first level cost
+    public int MaxLevel()
+    {
+        return GetLevelList().Length;
+    }
+
     /********  PROTECTED        ************************/
 
     // return true, if action is done and cooldown must begin
     protected abstract bool TryToShoot();
 
     // Retrieve data from TurretsDataManager
-    protected abstract void GetData();
+    protected abstract TurretsDataManager.TurretData[] GetLevelList();
 
     // called at the end of turret update
     protected virtual void UpdateMe(bool p_canShoot, float p_cooldown) { }
 
     /********  PRIVATE          ************************/
-
+    
     private void UpdateBar()
     {
         if (m_cooldownBar)
             m_cooldownBar.m_value = 1.0f - (m_cooldown / m_data.m_cooldown);
+    }
+
+    private void NextLevel()
+    {
+        m_level++;
+
+        var lists = GetLevelList();
+        m_data = lists[m_level];
+
+        m_levelsUI.Value = m_level;
     }
 
     #endregion

@@ -44,8 +44,6 @@ public class Energizor :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
-    private TurretsDataManager.DamageTurretData m_damageData = null;
-
     public GameObject m_energie;
 
     #endregion
@@ -68,22 +66,21 @@ public class Energizor :
             m_energie.transform.localScale = Vector3.one;
         else
         {
-            float scale = 0.2f + (1 - p_cooldown / m_damageData.m_cooldown) * 0.6f;
+            float scale = 0.2f + (1 - p_cooldown / (m_data as TurretsDataManager.DamageTurretData).m_cooldown) * 0.6f;
             m_energie.transform.localScale = Vector3.one * scale;
         }
     }
 
-    protected override void GetData()
+    protected override TurretsDataManager.TurretData[] GetLevelList()
     {
-        m_data = TurretsDataManager.Inst.m_areaLevels[0];
-        m_damageData = TurretsDataManager.Inst.m_areaLevels[0];
+        return TurretsDataManager.Inst.m_energizorLevels;
     }
 
     protected override bool TryToShoot()
     {
-        if (Vector3.Distance(GameManager.Inst.Player.transform.position, transform.position) > m_damageData.m_radius) return false;
+        if (Vector3.Distance(GameManager.Inst.Player.transform.position, transform.position) > (m_data as TurretsDataManager.DamageTurretData).m_radius) return false;
 
-        GameManager.Inst.addResources(m_damageData.m_hit);
+        GameManager.Inst.addResources((m_data as TurretsDataManager.DamageTurretData).m_hit);
 
         return true;
     }

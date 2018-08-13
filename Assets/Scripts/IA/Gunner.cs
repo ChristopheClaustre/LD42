@@ -47,8 +47,6 @@ public class Gunner :
     [SerializeField]
     private GameObject m_canon = null;
 
-    private TurretsDataManager.DamageTurretData m_damageData = null;
-
     [SerializeField]
     private AudioSource m_pewSound;
 
@@ -69,10 +67,9 @@ public class Gunner :
 
     /********  PROTECTED        ************************/
 
-    protected override void GetData()
+    protected override TurretsDataManager.TurretData[] GetLevelList()
     {
-        m_data = TurretsDataManager.Inst.m_gunnerLevels[0];
-        m_damageData = TurretsDataManager.Inst.m_gunnerLevels[0];
+        return TurretsDataManager.Inst.m_gunnerLevels;
     }
 
     protected override bool TryToShoot()
@@ -83,7 +80,7 @@ public class Gunner :
                 float distance = Vector3.Distance(x.transform.position, m_canon.transform.position);
 
                 // in range ?
-                if (distance > m_damageData.m_radius) return false;
+                if (distance > (m_data as TurretsDataManager.DamageTurretData).m_radius) return false;
 
                 // can see it ?
                 RaycastHit hit;
@@ -114,7 +111,7 @@ public class Gunner :
     private void Shoot(GameObject p_enemy)
     {
         m_canon.transform.LookAt(p_enemy.transform);
-        p_enemy.GetComponent<Enemy>().Hit(m_damageData.m_hit);
+        p_enemy.GetComponent<Enemy>().Hit((m_data as TurretsDataManager.DamageTurretData).m_hit);
 
         m_pew.Play();
         m_pewSound.Play();

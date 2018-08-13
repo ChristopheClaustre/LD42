@@ -65,9 +65,9 @@ public class Teleporter :
 
     /********  PROTECTED        ************************/
 
-    protected override void GetData()
+    protected override TurretsDataManager.TurretData[] GetLevelList()
     {
-        m_data = TurretsDataManager.Inst.m_tpLevels[0];
+        return TurretsDataManager.Inst.m_tpLevels;
     }
 
     protected override bool TryToShoot()

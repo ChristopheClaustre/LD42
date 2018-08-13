@@ -44,8 +44,6 @@ public class Area :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
-    private TurretsDataManager.DamageTurretData m_damageData = null;
-
     public GameObject m_effects;
 
     #endregion
@@ -62,21 +60,20 @@ public class Area :
 
     /********  PROTECTED        ************************/
 
-    protected override void GetData()
+    protected override TurretsDataManager.TurretData[] GetLevelList()
     {
-        m_data = TurretsDataManager.Inst.m_areaLevels[0];
-        m_damageData = TurretsDataManager.Inst.m_areaLevels[0];
-
-        m_effects.transform.localScale = Vector3.one * m_damageData.m_radius;
+        return TurretsDataManager.Inst.m_areaLevels;
     }
 
     protected override bool TryToShoot()
     {
+        m_effects.transform.localScale = Vector3.one * (m_data as TurretsDataManager.DamageTurretData).m_radius;
+
         List<GameObject> reachables = GameManager.Inst.Enemies.FindAll(
             x => {
                 // in range ?
                 float distance = Vector3.Distance(x.transform.position, transform.position);
-                return (distance < m_damageData.m_radius);
+                return (distance < (m_data as TurretsDataManager.DamageTurretData).m_radius);
             });
 
         foreach (GameObject reachable in reachables)
@@ -91,7 +88,7 @@ public class Area :
 
     private void Shoot(GameObject p_enemy)
     {
-        p_enemy.GetComponent<Enemy>().Hit(m_damageData.m_hit);
+        p_enemy.GetComponent<Enemy>().Hit((m_data as TurretsDataManager.DamageTurretData).m_hit);
     }
 
     #endregion
