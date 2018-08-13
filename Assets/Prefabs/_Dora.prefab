@@ -60,6 +60,7 @@ MonoBehaviour:
   m_turret:
   - {fileID: 1876613365716226, guid: 2c7d192167139484e86f531731d3a909, type: 2}
   - {fileID: 1452261297117782, guid: 438f438f71ecf5240bf8928b9096c3de, type: 2}
+  - {fileID: 1027901201641660, guid: 4b5ae9877fa1070438827dd6fbca0e91, type: 2}
   m_availableEnemies:
   - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
   - {fileID: 1378891120892732, guid: 3f4bf97c9be907e44886fb0cf1fb31e3, type: 2}
