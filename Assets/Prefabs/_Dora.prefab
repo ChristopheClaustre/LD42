@@ -164,7 +164,68 @@ MonoBehaviour:
   - {fileID: 1332714100407950, guid: 6abd589e5111af146aa19902831f926e, type: 2}
   - {fileID: 1711839186896042, guid: d4a91705deaceef4ba76a5144a4d70b8, type: 2}
   m_cameraStartMenu: {fileID: 0}
-  m_cameraDefeatMenu: {fileID: 0}
+  m_text: {fileID: 0}
+  m_endString: 'Foes detected: >9000
+
+    Defenses plateforms remaining: 80
+
+    Will run out of space for turret in: 3 min(s)
+
+
+    [T.O.W.E.L] launch required.
+
+
+    \usr\Farra\Floppy\DeepThought> cd ../TOWEL
+
+
+    \usr\Farra\Floppy\TOWEL> launch
+
+    Welcome to the ''Turret Organiser for Warfare Environements and Logistics'' system.
+
+    You will be able to control the [T.O.W.E.L] in a few seconds.
+
+    Please wait...
+
+
+    Ready. Do you confirm the launch ? [y/n] y
+
+    Carrier launched !
+
+
+    Carrier destroyed.
+
+    Core fully corrupted after $round$ enemy assault(s).
+
+
+    \usr\Farra\Floppy\DeepThought> status
+
+    Receiving informations (0o/s): <1% [0o/0o]
+
+    Error: connection to Core Lost
+
+
+    Status: <color=#00ffffff>Timeline Lost</color>
+
+    Back into the breach?
+
+    Press <color=#800080ff><Esc></color> to terminate the process and close the window
+
+
+    \usr\Farra\Floppy\DeepThought> cd ..\BackToTheFuture
+
+
+    \usr\Farra\Floppy\BackToTheFuture> launch_'
+  m_startString: "Status: Safe\nFoes detected: None\nDefenses plateforms remaining:
+    80\nWill run out of space for turret in: 7\xBD million years\nNo need for an operator\n\n\\usr\\Farra\\Floppy\\DeepThought>
+    \n\nRemote broadcast message:\nCore may be corrupted.\nPlease send a [T.O.W.E.L.]
+    carrier.\n\n\\usr\\Farra\\Floppy\\DeepThought> status\nReceiving informations
+    (3.14Go/s): 100% [13.37Go/13.37Go]\n\nStatus: <color=#ff0000ff>CRITICAL</color>\nFoes
+    detected: >9000\nDefenses plateforms remaining: 80\nWill run out of space for
+    turret in: 3 min(s)\n\n[T.O.W.E.L] launch required.\n\n\\usr\\Farra\\Floppy\\DeepThought>
+    cd ../TOWEL\n\n\\usr\\Farra\\Floppy\\TOWEL> launch\nWelcome to the 'Turret Organiser
+    for Warfare Environements and Logistics' system.\nYou will be able to control
+    the [T.O.W.E.L.] in a few seconds.\nPlease wait...\n\nCarrier ready. Take control
+    ? [y/n] y_"
   m_prefabFog: {fileID: 1600964260823388, guid: a64a4e7d34d14724c8863b8ea638e866,
     type: 2}
   m_warning: {fileID: 82393127627561140}

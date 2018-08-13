@@ -5,6 +5,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 /***************************************************/
 /***  THE CLASS             ************************/
@@ -117,7 +118,9 @@ public class GameManager :
     private GameState m_state;
 
     public GameObject m_cameraStartMenu;
-    public GameObject m_cameraDefeatMenu;
+    public Text m_text;
+    [TextArea] public string m_endString;
+    [TextArea] public string m_startString;
 
     private GameObject m_player;
 
@@ -151,6 +154,7 @@ public class GameManager :
 
         m_player.SetActive(false);
         m_cameraStartMenu.SetActive(true);
+        m_text.text = m_startString;
 
         m_resourceTimer = SettingsManager.Inst.m_resourceGainSpeed;
         m_resources = SettingsManager.Inst.m_startingResource;
@@ -237,7 +241,8 @@ public class GameManager :
     public void Defeat()
     {
         m_player.SetActive(false);
-        m_cameraDefeatMenu.SetActive(true);
+        m_cameraStartMenu.SetActive(true);
+        m_text.text = m_endString.Replace("$round$", "" + m_round);
     }
 
     public void StartGame()
@@ -296,7 +301,7 @@ public class GameManager :
     private void CreateFog(EnemiesDataManager.EvilFogGenerationData p_data)
     {
         GameObject fog = Instantiate(m_prefabFog,
-            GenerateMap.PolarToCartesian(GenerateMap.GenerateRandomPolarCoordinates(SettingsManager.Inst.m_rayonSphere, SettingsManager.Inst.m_rayonExternalSphere)),
+            GenerateMap.PolarToCartesian(GenerateMap.GenerateRandomPolarCoordinates(SettingsManager.Inst.m_rayonExternalSphere, SettingsManager.Inst.m_rayonExternalSphere)),
             Quaternion.identity);
 
         fog.GetComponent<EvilFog>().m_availableEnemies.Clear();
