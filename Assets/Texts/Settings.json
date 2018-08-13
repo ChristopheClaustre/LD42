@@ -10,8 +10,8 @@
 	"m_gunDamage": 2,
 	"m_gunCooldown": 0.2,
 	"m_startingResource": 50,
-    "m_resourceGainSpeed": 5,
-	"m_resourceGainQuantity": 5,
+    "m_resourceGainSpeed": 1,
+	"m_resourceGainQuantity": 1,
 	
 	"m_mapGenerationCheck": 8000
 }
