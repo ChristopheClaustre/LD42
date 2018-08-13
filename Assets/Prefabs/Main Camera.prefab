@@ -312,8 +312,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.1, y: -0.037, z: 0.16}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
-  m_Children:
-  - {fileID: 4697354749833852}
+  m_Children: []
   m_Father: {fileID: 4168823341487000}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -337,8 +336,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1007201753134424}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2, z: -20}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4168823341487000}
@@ -363,6 +362,7 @@ Transform:
   - {fileID: 4238347794528098}
   - {fileID: 224353782109686366}
   - {fileID: 4426711810476354}
+  - {fileID: 4697354749833852}
   m_Father: {fileID: 4041247801527850}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 4.96, y: 9.86, z: 0}
@@ -452,12 +452,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1947069851079182}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.12, y: 0.8, z: 0.49}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1041, y: -0.0414, z: 0.135}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_Children: []
-  m_Father: {fileID: 4003296491071560}
-  m_RootOrder: 0
+  m_Father: {fileID: 4168823341487000}
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4759593256179230
 Transform:
@@ -1033,7 +1033,7 @@ Light:
   m_Type: 2
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
-  m_Range: 0.23945332
+  m_Range: 0.3
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -1118,7 +1118,6 @@ MonoBehaviour:
   - {fileID: 1258697194568380, guid: 0c29b57a7b7ca5946bfba49c26736044, type: 2}
   - {fileID: 1350625687629230, guid: 34599ecab93a30846b48c7de3672e417, type: 2}
   - {fileID: 1854094246264754, guid: 8763c4f5112798546aa6855a6f314e16, type: 2}
-  m_upgrader: {fileID: 1917283037896802, guid: ba4df5cb6b7d5674f95a4ba9f1592b74, type: 2}
 --- !u!114 &114172109922338342
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1201,6 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_pewSound: {fileID: 82812078588272392}
   m_pew: {fileID: 198655287774215896}
+  m_beammeup: {fileID: 0}
 --- !u!114 &114566106681121306
 MonoBehaviour:
   m_ObjectHideFlags: 1
