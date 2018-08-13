@@ -106,9 +106,9 @@ InputManager:
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
-    positiveButton: enter
+    positiveButton: return
     altNegativeButton: 
-    altPositiveButton: space
+    altPositiveButton: enter
     gravity: 1000
     dead: 0.001
     sensitivity: 1000
@@ -246,13 +246,13 @@ InputManager:
     axis: 0
     joyNum: 0
   - serializedVersion: 3
-    m_Name: Show Game State
+    m_Name: Switch Game State
     descriptiveName: 
     descriptiveNegativeName: 
     negativeButton: 
     positiveButton: left alt
     altNegativeButton: 
-    altPositiveButton: 
+    altPositiveButton: tab
     gravity: 1000
     dead: 0.001
     sensitivity: 1000

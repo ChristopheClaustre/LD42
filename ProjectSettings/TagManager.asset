@@ -19,9 +19,9 @@ TagManager:
   - 
   - 
   - PlatformeFace
-  - GameState
+  - HealthBar
   - Debug
-  - 
+  - CooldownBar
   - 
   - 
   - 

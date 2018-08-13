@@ -18,7 +18,7 @@ public abstract class Turret :
 
     /********  PUBLIC           ************************/
 
-    enum State
+    public enum State
     {
         CanShoot,
         Cooldown
@@ -34,7 +34,18 @@ public abstract class Turret :
     /***  PROPERTY              ************************/
     /***************************************************/
 
+    public State TurretState
+    {
+        get
+        {
+            return m_state;
+        }
 
+        set
+        {
+            m_state = value;
+        }
+    }
 
     #endregion
     #region Constants

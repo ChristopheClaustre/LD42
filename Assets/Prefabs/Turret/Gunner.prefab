@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 114111934660989310}
   - component: {fileID: 114833240701133624}
   - component: {fileID: 114676333981932384}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 224572655187787332}
   - component: {fileID: 222324977697636708}
   - component: {fileID: 114463304995620934}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: bar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -211,7 +211,7 @@ GameObject:
   - component: {fileID: 224317299968647672}
   - component: {fileID: 222090189570343044}
   - component: {fileID: 114485770885957890}
-  m_Layer: 9
+  m_Layer: 11
   m_Name: background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
