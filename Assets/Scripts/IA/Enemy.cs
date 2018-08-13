@@ -90,11 +90,19 @@ public class Enemy :
 
     public void Hit(int p_damage)
     {
-        m_health -= p_damage;
+        Transform shieldTr = transform.Find("Shield");
+        if (shieldTr)
+        {
+            shieldTr.gameObject.GetComponentInChildren<Enemy>().Hit(p_damage);
+        }
+        else
+        {
+            m_health -= p_damage;
 
-        UpdateBar();
+            UpdateBar();
 
-        if (m_health <= 0) Die();
+            if (m_health <= 0) Die();
+        }
     }
 
     /********  PROTECTED        ************************/
