@@ -59,6 +59,10 @@ public class CameraSensor : MonoBehaviour
             {
                 ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;
             }
+            else if (objectHit.gameObject.tag == "Turret")
+            {
+                ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;
+            }
             else if (objectHit.gameObject.tag == "Enemy")
             {
                 ONEPlayerInteraction.Instance.CurrentInteractiveObject = objectHit.gameObject;

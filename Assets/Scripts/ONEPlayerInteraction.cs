@@ -76,14 +76,46 @@ public class ONEPlayerInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_currentInteractiveObject 
+            && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret")
+            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f) )
+        {
+            m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = true;
+        }
+        else
+        {
+            m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = false;
+        }
+
+
         if (Input.GetButtonDown("Fire1"))
         {
-            m_pew.Play();
-            m_pewSound.Play();
-            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
+            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
+            {
+                var teleporter = m_currentInteractiveObject.transform.parent.gameObject.GetComponent<Teleporter>();
+                if (teleporter.TurretState == Turret.State.CanShoot)
+                {
+                    Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
+                    deplacement = deplacement.normalized * (deplacement.magnitude - 2);
+                    transform.position = transform.position + deplacement;
+
+                    // reset cooldown
+                    teleporter.TeleporterUsed();
+                    m_beammeup.Play();
+                }
+            }
+            else if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
             {
                 m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
+                m_pew.Play();
+                m_pewSound.Play();
             }
+            else
+            {
+                m_pew.Play();
+                m_pewSound.Play();
+            }
+
         }
         if (Input.GetButtonDown("Fire2"))
         {
@@ -105,21 +137,15 @@ public class ONEPlayerInteraction : MonoBehaviour
                     
                 }
             }
-            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
+            //Upgrade turret
+            if (m_currentInteractiveObject && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret"))
             {
-                var teleporter = m_currentInteractiveObject.transform.parent.gameObject.GetComponent<Teleporter>();
-                if (teleporter.TurretState == Turret.State.CanShoot)
+                if ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f)
                 {
-                    Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
-                    deplacement = deplacement.normalized * (deplacement.magnitude - 2);
-                    transform.position = transform.position + deplacement;
-
-                    // reset cooldown
-                    teleporter.TeleporterUsed();
-                    m_beammeup.Play();
+                    Debug.Log("Turret upgrade");
+                    //m_currentInteractiveObject.GetComponent<Turret>().Upgrade;
                 }
             }
-
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)

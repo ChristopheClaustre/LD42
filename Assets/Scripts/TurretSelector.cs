@@ -23,6 +23,18 @@ public class TurretSelector: MonoBehaviour
             return GameManager.Inst.Turrets[m_currentTurretIndex];
         }
     }
+
+    public bool ActiveUpgrader
+    {
+        get
+        {
+            return m_activeUpgrader;
+        }
+        set
+        {
+            m_activeUpgrader = value;
+        }
+    }
     #endregion
     #region Attributes
     /***************************************************/
@@ -31,6 +43,8 @@ public class TurretSelector: MonoBehaviour
 
 
     public List<GameObject> m_turrets = new List<GameObject>();
+    public GameObject m_upgrader;
+    private bool m_activeUpgrader = false;
     private int m_currentTurretIndex = 0;
     private Transform m_turretSelector;
     
@@ -51,13 +65,18 @@ public class TurretSelector: MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        UpdatePistole();
+    }
 
+    public void SelectUpgrader(bool p_value)
+    {
+        m_activeUpgrader = p_value;
     }
 
     public void NextTurret()
     {
         
-        if (m_currentTurretIndex < m_turrets.Count - 1)
+        if (m_currentTurretIndex < m_turrets.Count - 1 && !m_activeUpgrader)
         {
             m_currentTurretIndex++;
         }
@@ -65,12 +84,11 @@ public class TurretSelector: MonoBehaviour
         {
             m_currentTurretIndex = 0;
         }
-        UpdatePistole();
     }
 
     public void PreviousTurret()
     {
-        if (m_currentTurretIndex < m_turrets.Count - 1)
+        if (m_currentTurretIndex < m_turrets.Count - 1 && !m_activeUpgrader)
         {
             m_currentTurretIndex++;
         }
@@ -78,7 +96,6 @@ public class TurretSelector: MonoBehaviour
         {
             m_currentTurretIndex = 0;
         }
-        UpdatePistole();
     }
     /********  OUR MESSAGES     ************************/
 
@@ -94,7 +111,12 @@ public class TurretSelector: MonoBehaviour
             Transform currentTower = m_turretSelector.Find("tower");
             if (currentTower)
                 Destroy(currentTower.gameObject);
-            GameObject tower = Instantiate(m_turrets[m_currentTurretIndex]);
+            GameObject tower;
+            if (m_activeUpgrader)
+                tower = Instantiate(m_upgrader);
+            else
+                tower = Instantiate(m_turrets[m_currentTurretIndex]);
+
             tower.name = "tower";
             tower.transform.parent = m_turretSelector;
             tower.transform.position = m_turretSelector.position;
