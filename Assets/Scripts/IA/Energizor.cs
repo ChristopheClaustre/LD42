@@ -46,6 +46,8 @@ public class Energizor :
 
     private TurretsDataManager.DamageTurretData m_damageData = null;
 
+    public GameObject m_energie;
+
     #endregion
     #region Methods
     /***************************************************/
@@ -68,18 +70,18 @@ public class Energizor :
 
     protected override bool TryToShoot()
     {
+        m_energie.SetActive(true);
+
         if (Vector3.Distance(GameManager.Inst.Player.transform.position, transform.position) > m_damageData.m_radius) return false;
 
         GameManager.Inst.addResources(m_damageData.m_hit);
+
+        m_energie.SetActive(false);
+
         return true;
     }
 
     /********  PRIVATE          ************************/
-
-    private void Shoot(GameObject p_enemy)
-    {
-        p_enemy.GetComponent<Enemy>().Hit(m_damageData.m_hit);
-    }
 
     #endregion
 }
