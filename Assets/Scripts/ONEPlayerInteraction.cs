@@ -79,7 +79,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             m_pewSound.Play();
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
             {
-                m_currentInteractiveObject.GetComponent<Enemy>().Hit(2/*TODO USE DATA*/);
+                m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
             }
         }
         if (Input.GetButtonDown("Fire2"))
