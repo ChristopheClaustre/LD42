@@ -44,7 +44,8 @@ public class CoreManager :
     /***  ATTRIBUTES            ************************/
     /***************************************************/
 
-
+    [SerializeField]
+    private AudioSource m_DamageSound;
 
     #endregion
     #region Methods
@@ -70,6 +71,7 @@ public class CoreManager :
     {
         if (other.tag == "Enemy")
         {
+            m_DamageSound.Play();
             GameManager.Inst.CoreHitted(other.gameObject);
         }
     }
