@@ -436,14 +436,14 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "Will run out of space for turret in: 7\xBD million years\nNo need for an
-    operator\n\n\\usr\\bin\\towel_system> state\nReceiving informations (1.66Go/s):
-    100% [12.3Go/12.3Go]\n\nState: Safe\nFoes detected: None\nDefenses plateforms
-    remaining: 50\nWill run out of space for turret in: 7\xBD million years\nNo need
-    for an operator\n\n\\usr\\bin\\towel_system> state\nReceiving informations (1.81Go/s):
-    100% [12.3Go/12.3Go]\n\nState: <color=#ff0000ff>CRITICAL</color>\nFoes detected:
-    >9000\nDefenses plateforms remaining: 50\nWill run out of space for turret in:
-    10 min(s)\nPlease send a T.O.W.E.L carrier\n\n\\usr\\bin\\towel_system> launch"
+  m_Text: "NK:\\floppy\\usr\\bin\\DeepThought> state\nReceiving informations (3.14Go/s):
+    100% [13.37Go/13.37Go]\n\nState: Safe\nFoes detected: None\nDefenses plateforms
+    remaining: 80\nWill run out of space for turret in: 7\xBD million years\nNo need
+    for an operator\n\nNK:\\floppy\\usr\\bin\\DeepThought> state\nReceiving informations
+    (3.14Go/s): 100% [13.37Go/13.37Go]\n\nState: <color=#ff0000ff>CRITICAL</color>\nFoes
+    detected: >9000\nDefenses plateforms remaining: 80\nWill run out of space for
+    turret in: 10 min(s)\n\nTurret Organiser for Warfare Environements and Logistics
+    [T.O.W.E.L.] launch required.\n\nNK:\\floppy\\usr\\bin\\towel_system> launch\ny_"
 --- !u!114 &114822273775930212
 MonoBehaviour:
   m_ObjectHideFlags: 1
