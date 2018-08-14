@@ -60,13 +60,13 @@ public class Energizor :
 
     /********  PROTECTED        ************************/
 
-    protected override void UpdateMe(bool p_canShoot, float p_cooldown)
+    protected override void UpdateMe(bool p_canShoot, float p_cooldown, float p_cooldownInitial)
     {
         if (p_canShoot)
             m_energie.transform.localScale = Vector3.one;
         else
         {
-            float scale = 0.2f + (1 - p_cooldown / (m_data as TurretsDataManager.DamageTurretData).m_cooldown) * 0.6f;
+            float scale = 0.2f + (1 - p_cooldown / p_cooldownInitial) * 0.6f;
             m_energie.transform.localScale = Vector3.one * scale;
         }
     }

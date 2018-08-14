@@ -65,6 +65,7 @@ public abstract class Turret :
 
     private State m_state = State.CanShoot;
 
+    private float m_cooldownInitial = 0;
     private float m_cooldown = 0;
 
     private int m_level = 0;
@@ -92,6 +93,7 @@ public abstract class Turret :
 
         m_state = State.Cooldown;
         m_cooldown = m_data.m_cooldown;
+        m_cooldownInitial = m_data.m_cooldown;
 
         UpdateBar();
 
@@ -109,6 +111,7 @@ public abstract class Turret :
                 {
                     m_state = State.Cooldown;
                     m_cooldown = m_data.m_cooldown;
+                    m_cooldownInitial = m_data.m_cooldown;
 
                     UpdateBar();
                 }
@@ -127,7 +130,7 @@ public abstract class Turret :
                 break;
         }
 
-        UpdateMe(m_state == State.CanShoot, m_cooldown);
+        UpdateMe(m_state == State.CanShoot, m_cooldown, m_cooldownInitial);
     }
 
     /********  OUR MESSAGES     ************************/
@@ -178,14 +181,14 @@ public abstract class Turret :
     protected abstract TurretsDataManager.TurretData[] GetLevelList();
 
     // called at the end of turret update
-    protected virtual void UpdateMe(bool p_canShoot, float p_cooldown) { }
+    protected virtual void UpdateMe(bool p_canShoot, float p_cooldown, float p_cooldownInitial) { }
 
     /********  PRIVATE          ************************/
     
     private void UpdateBar()
     {
         if (m_cooldownBar)
-            m_cooldownBar.m_value = 1.0f - (m_cooldown / m_data.m_cooldown);
+            m_cooldownBar.m_value = 1.0f - (m_cooldown / m_cooldownInitial);
     }
 
     #endregion
