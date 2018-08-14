@@ -24,15 +24,15 @@
 			"m_fogs": [
 				{
 					"m_availableEnemies": [ 0 ],
-					"m_numberOfEnemies": 5
+					"m_numberOfEnemies": 4
 				},
 				{
 					"m_availableEnemies": [ 0 ],
-					"m_numberOfEnemies": 5
+					"m_numberOfEnemies": 4
 				},
 				{
 					"m_availableEnemies": [ 0 ],
-					"m_numberOfEnemies": 5
+					"m_numberOfEnemies": 4
 				}
 			]
 		},
@@ -44,11 +44,11 @@
 				},
 				{
 					"m_availableEnemies": [ 1 ],
-					"m_numberOfEnemies": 5
+					"m_numberOfEnemies": 4
 				},
 				{
 					"m_availableEnemies": [ 1 ],
-					"m_numberOfEnemies": 5
+					"m_numberOfEnemies": 4
 				}
 			]
 		},

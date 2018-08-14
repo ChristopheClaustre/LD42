@@ -85,22 +85,22 @@
 	],
 	"m_energizorLevels": [
 		{
-			"m_cost": 70,
+			"m_cost": 100,
 			"m_cooldown": 60,
 			
 			"m_hit": 50,
 			"m_radius": 7
 		},
 		{
-			"m_cost": 80,
-			"m_cooldown": 40,
+			"m_cost": 150,
+			"m_cooldown": 50,
 			
 			"m_hit": 50,
 			"m_radius": 7
 		},
 		{
-			"m_cost": 100,
-			"m_cooldown": 20,
+			"m_cost": 200,
+			"m_cooldown": 40,
 			
 			"m_hit": 50,
 			"m_radius": 7
