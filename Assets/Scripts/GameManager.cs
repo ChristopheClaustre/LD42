@@ -86,6 +86,14 @@ public class GameManager :
         }
     }
 
+    public int Round
+    {
+        get
+        {
+            return m_round;
+        }
+    }
+
     #endregion
     #region Constants
     /***************************************************/

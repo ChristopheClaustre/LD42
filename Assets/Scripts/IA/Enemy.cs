@@ -62,6 +62,7 @@ public class Enemy :
     private void Start()
     {
         m_initial = EnemiesDataManager.Inst.m_enemies[(int)m_type];
+        m_initial.m_health += Mathf.RoundToInt(m_initial.m_health * 0.1f * GameManager.Inst.Round);
 
         m_health = m_initial.m_health;
 
