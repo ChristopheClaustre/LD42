@@ -234,7 +234,7 @@ public class GameManager :
     public void CoreHitted(GameObject p_enemy)
     {
         m_enemies.Remove(p_enemy);
-        p_enemy.GetComponent<Enemy>().Hit(9001);
+        p_enemy.GetComponent<Enemy>().Die();
 
         if (m_plateforms.Count > 0)
         {

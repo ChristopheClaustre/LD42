@@ -106,17 +106,17 @@ public class Enemy :
         }
     }
 
-    /********  PROTECTED        ************************/
-
-    /********  PRIVATE          ************************/
-
-    private void Die()
+    public void Die()
     {
         // do cool stuff
 
         // then die
         Destroy(gameObject);
     }
+
+    /********  PROTECTED        ************************/
+
+    /********  PRIVATE          ************************/
 
     private void UpdateBar()
     {
