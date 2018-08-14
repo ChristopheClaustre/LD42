@@ -27,6 +27,12 @@ public class EnemiesDataManager :
     [System.Serializable]
     public class EnemyData
     {
+        public EnemyData (EnemyData p_enemyData)
+        {
+            m_health = p_enemyData.m_health;
+            m_velocity = p_enemyData.m_velocity;
+        }
+
         public int m_health;
         public float m_velocity;
     }

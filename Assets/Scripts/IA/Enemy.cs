@@ -45,7 +45,7 @@ public class Enemy :
     [SerializeField]
     private ManageBar m_healthBar;
 
-    private EnemiesDataManager.EnemyData m_initial = new EnemiesDataManager.EnemyData { m_velocity = 0.1f, m_health = 12 };
+    private EnemiesDataManager.EnemyData m_initial;
     private int m_health = 12;
 
     public EnemiesDataManager.EnemyType m_type;
@@ -61,7 +61,7 @@ public class Enemy :
     // Use this for initialization
     private void Start()
     {
-        m_initial = EnemiesDataManager.Inst.m_enemies[(int)m_type];
+        m_initial = new EnemiesDataManager.EnemyData(EnemiesDataManager.Inst.m_enemies[(int)m_type]);
         m_initial.m_health += Mathf.RoundToInt(m_initial.m_health * 0.1f * GameManager.Inst.Round);
 
         m_health = m_initial.m_health;
