@@ -1299,7 +1299,7 @@ MonoBehaviour:
   m_ErrorSound: {fileID: 82939935259620756}
   m_pewSound: {fileID: 82812078588272392}
   m_pew: {fileID: 198655287774215896}
-  m_beammeup: {fileID: 0}
+  m_beammeup: {fileID: 82710765247054832}
 --- !u!114 &114566106681121306
 MonoBehaviour:
   m_ObjectHideFlags: 1
