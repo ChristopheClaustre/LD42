@@ -58,7 +58,7 @@ public class CoreManager :
     // Use this for initialization
     private void Start()
     {
-        GetComponent<SphereCollider>().radius = SettingsManager.Inst.m_rayonCore;
+
     }
 
     // Update is called once per frame
