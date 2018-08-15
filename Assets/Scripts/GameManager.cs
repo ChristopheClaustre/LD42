@@ -151,9 +151,9 @@ public class GameManager :
     // Use this for initialization
     private void Start()
     {
+        ManageCursor(true);
+
         m_instance = this;
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
         SoundManager.Instance.PlaySingle(m_musicTracks[1]);
 
         m_state = GameState.Start;
@@ -172,7 +172,12 @@ public class GameManager :
 
     void OnApplicationFocus(bool hasFocus)
     {
-        Cursor.visible = !hasFocus;
+        ManageCursor(hasFocus);
+    }
+
+    private void OnMouseDown()
+    {
+        ManageCursor(true);
     }
 
     // Update is called once per frame
@@ -276,6 +281,11 @@ public class GameManager :
 
     /********  PRIVATE          ************************/
 
+    private void ManageCursor(bool p_lock)
+    {
+        Cursor.lockState = p_lock? CursorLockMode.Locked: CursorLockMode.None;
+    }
+
     private void NextRound()
     {
         ++m_round;
@@ -336,7 +346,6 @@ public class GameManager :
             m_resources = m_resources + SettingsManager.Inst.m_resourceGainQuantity;
             m_resourceTimer = SettingsManager.Inst.m_resourceGainSpeed;
         }
-        
     }
 
     #endregion
