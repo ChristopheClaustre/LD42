@@ -68,6 +68,8 @@ public class EnemiesDataManager :
 
         public EvilFogGenerationData m_laterRoundFogs;
         public int m_minimalNumberOfLaterRoundFogs;
+
+        public float m_percentageOfAddedHealthPerTurn;
     }
 
     #endregion

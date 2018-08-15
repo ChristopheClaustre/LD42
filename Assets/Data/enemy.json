@@ -104,7 +104,9 @@
 	
 	"m_laterRoundFogs": {
 		"m_availableEnemies": [ 0, 1, 2 ],
-		"m_numberOfEnemies": 10
+		"m_numberOfEnemies": 8
 	},
-	"m_minimalNumberOfLaterRoundFogs": 4
+	"m_minimalNumberOfLaterRoundFogs": 4,
+	
+	"m_percentageOfAddedHealthPerTurn": 0.15
 }

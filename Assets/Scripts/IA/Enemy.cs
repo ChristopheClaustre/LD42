@@ -65,7 +65,7 @@ public class Enemy :
 
         for (int i = 0; i < GameManager.Inst.Round; i++)
         {
-            m_initial.m_health += Mathf.RoundToInt(m_initial.m_health * 0.2f);
+            m_initial.m_health += Mathf.RoundToInt(m_initial.m_health * EnemiesDataManager.Inst.m_percentageOfAddedHealthPerTurn);
         }
         m_health = m_initial.m_health;
 
