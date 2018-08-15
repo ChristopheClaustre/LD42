@@ -167,7 +167,7 @@ MonoBehaviour:
   m_text: {fileID: 0}
   m_endString: 'Foes detected: >9000
 
-    Defenses plateforms remaining: 80
+    Defenses plateforms remaining: $plateform$
 
     Will run out of space for turret in: 3 min(s)
 
@@ -216,12 +216,12 @@ MonoBehaviour:
 
     \usr\Farra\Floppy\BackToTheFuture> launch_'
   m_startString: "Status: Safe\nFoes detected: None\nDefenses plateforms remaining:
-    80\nWill run out of space for turret in: 7\xBD million years\nNo need for an operator\n\n\\usr\\Farra\\Floppy\\DeepThought>
-    \n\nRemote broadcast message:\nCore may be corrupted.\nPlease send a [T.O.W.E.L.]
-    carrier.\n\n\\usr\\Farra\\Floppy\\DeepThought> status\nReceiving informations
-    (3.14Go/s): 100% [13.37Go/13.37Go]\n\nStatus: <color=#ff0000ff>CRITICAL</color>\nFoes
-    detected: >9000\nDefenses plateforms remaining: 80\nWill run out of space for
-    turret in: 3 min(s)\n\n[T.O.W.E.L] launch required.\n\n\\usr\\Farra\\Floppy\\DeepThought>
+    $plateform$\nWill run out of space for turret in: 7\xBD million years\nNo need
+    for an operator\n\n\\usr\\Farra\\Floppy\\DeepThought> \n\nRemote broadcast message:\nCore
+    may be corrupted.\nPlease send a [T.O.W.E.L.] carrier.\n\n\\usr\\Farra\\Floppy\\DeepThought>
+    status\nReceiving informations (3.14Go/s): 100% [13.37Go/13.37Go]\n\nStatus: <color=#ff0000ff>CRITICAL</color>\nFoes
+    detected: >9000\nDefenses plateforms remaining: $plateform$\nWill run out of space
+    for turret in: 3 min(s)\n\n[T.O.W.E.L] launch required.\n\n\\usr\\Farra\\Floppy\\DeepThought>
     cd ../TOWEL\n\n\\usr\\Farra\\Floppy\\TOWEL> launch\nWelcome to the 'Turret Organiser
     for Warfare Environements and Logistics' system.\nYou will be able to control
     the [T.O.W.E.L.] in a few seconds.\nPlease wait...\n\nCarrier ready. Take control

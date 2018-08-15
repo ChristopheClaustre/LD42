@@ -162,7 +162,7 @@ public class GameManager :
 
         m_player.SetActive(false);
         m_cameraStartMenu.SetActive(true);
-        m_text.text = m_startString;
+        m_text.text = m_startString.Replace("$plateform$", "" + SettingsManager.Inst.m_initialPlateformCount);
 
         m_resourceTimer = SettingsManager.Inst.m_resourceGainSpeed;
         m_resources = SettingsManager.Inst.m_startingResource;
@@ -255,7 +255,7 @@ public class GameManager :
     {
         m_player.SetActive(false);
         m_cameraStartMenu.SetActive(true);
-        m_text.text = m_endString.Replace("$round$", "" + m_round);
+        m_text.text = m_endString.Replace("$round$", "" + m_round + 1).Replace("$plateform$", "" + SettingsManager.Inst.m_initialPlateformCount);
     }
 
     public void StartGame()
