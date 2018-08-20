@@ -11,7 +11,8 @@
 	"m_gunCooldown": 0.3,
 	"m_startingResource": 50,
     "m_resourceGainSpeed": 1,
-	"m_resourceGainQuantity": 2,
+    "m_resourceGainQuantity": 2,
+    "m_distanceTurretManagement": 3.0,
 	
 	"m_mapGenerationCheck": 8000
 }

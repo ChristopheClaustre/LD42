@@ -33,6 +33,7 @@ public class SettingsManager :
         public int m_startingResource;
         public int m_resourceGainSpeed;
         public int m_resourceGainQuantity;
+        public float m_distanceTurretManagement;
 
         public int m_mapGenerationCheck;
     }
