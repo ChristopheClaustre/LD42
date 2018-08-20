@@ -635,7 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_bar: {fileID: 224430234844368216}
-  m_canvas: {fileID: 224822778569746452}
+  m_canvas: {fileID: 4544251805194438}
   m_value: 0
 --- !u!114 &114622816278915412
 MonoBehaviour:
