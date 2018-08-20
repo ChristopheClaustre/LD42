@@ -78,6 +78,9 @@ public class ONEPlayerInteraction : MonoBehaviour
         m_turretSelector = transform.Find("T.O.W.E.L");
 
         m_pew.GetComponent<InflictDamageParticle>().m_damage = SettingsManager.Inst.m_gunDamage;
+
+        m_gameStateUi = 1;
+        DisplayGameState();
     }
 
     // Update is called once per frame
@@ -201,27 +204,8 @@ public class ONEPlayerInteraction : MonoBehaviour
 
         if (Input.GetButtonDown("Switch Game State"))
         {
-            switch (m_gameStateUi)
-            {
-                case 0:
-                    Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
-                    m_gameStateUi++;
-                    break;
-                case 1:
-                    Camera.main.cullingMask |= LayerMask.GetMask("HealthBar");
-                    Camera.main.cullingMask &= ~ LayerMask.GetMask("CooldownBar");
-                    m_gameStateUi++;
-                    break;
-                case 2:
-                    Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
-                    m_gameStateUi++;
-                    break;
-                default:
-                    Camera.main.cullingMask &= ~LayerMask.GetMask("CooldownBar");
-                    Camera.main.cullingMask &= ~LayerMask.GetMask("HealthBar");
-                    m_gameStateUi = 0;
-                    break;
-            }
+            m_gameStateUi = (m_gameStateUi + 1) % 4;
+            DisplayGameState();
         }
     }
 
@@ -232,6 +216,29 @@ public class ONEPlayerInteraction : MonoBehaviour
     /********  PROTECTED        ************************/
 
     /********  PRIVATE          ************************/
+
+    private void DisplayGameState()
+    {
+        switch (m_gameStateUi)
+        {
+            case 0:
+                Camera.main.cullingMask &= ~LayerMask.GetMask("CooldownBar");
+                Camera.main.cullingMask &= ~LayerMask.GetMask("HealthBar");
+                break;
+            case 1:
+                Camera.main.cullingMask |= LayerMask.GetMask("HealthBar");
+                Camera.main.cullingMask &= ~LayerMask.GetMask("CooldownBar");
+                break;
+            case 2:
+                Camera.main.cullingMask &= ~LayerMask.GetMask("HealthBar");
+                Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
+                break;
+            case 3:
+                Camera.main.cullingMask |= LayerMask.GetMask("CooldownBar");
+                Camera.main.cullingMask |= LayerMask.GetMask("HealthBar");
+                break;
+        }
+    }
 
     #endregion
 }
