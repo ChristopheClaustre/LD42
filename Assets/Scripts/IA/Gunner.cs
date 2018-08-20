@@ -111,7 +111,8 @@ public class Gunner :
     private void Shoot(GameObject p_enemy)
     {
         m_canon.transform.LookAt(p_enemy.transform);
-        p_enemy.GetComponent<Enemy>().Hit((m_data as TurretsDataManager.DamageTurretData).m_hit);
+
+        m_pew.GetComponent<InflictDamageParticle>().m_damage = (m_data as TurretsDataManager.DamageTurretData).m_hit;
 
         m_pew.Play();
         m_pewSound.Play();

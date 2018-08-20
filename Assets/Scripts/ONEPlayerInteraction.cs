@@ -71,19 +71,24 @@ public class ONEPlayerInteraction : MonoBehaviour
     /***************************************************/
 
     /********  UNITY MESSAGES   ************************/
+
     // Use this for initialization
     void Start()
     {
         m_turretSelector = transform.Find("T.O.W.E.L");
+
+        m_pew.GetComponent<InflictDamageParticle>().m_damage = SettingsManager.Inst.m_gunDamage;
     }
 
     // Update is called once per frame
     void Update()
     {
+        // gun cooldown
         m_gunCooldown -= Time.deltaTime;
+
         if (m_currentInteractiveObject 
             && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret")
-            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f) 
+            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f)
             )
         {
             GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
@@ -102,7 +107,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = false;
         }
 
-
+        // TP to turret
         if (Input.GetButtonDown("Fire1"))
         {
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
@@ -125,33 +130,21 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
         }
 
+        // shoot with gun
         if (Input.GetButton("Fire1"))
         {
-            if (m_gunCooldown < 0)
+            if (m_gunCooldown <= 0)
             {
-                if (!m_currentInteractiveObject)
-                {
-                    m_pew.Play();
-                    m_pewSound.Play();
-                    m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
-                }
-                else if (m_currentInteractiveObject.tag != "TpTurret")
-                {
-
-                    if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "Enemy")
-                    {
-                        m_currentInteractiveObject.GetComponent<Enemy>().Hit(SettingsManager.Inst.m_gunDamage);
-                    }
-                    m_pew.Play();
-                    m_pewSound.Play();
-                    m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
-                }
+                m_pew.Play();
+                m_pewSound.Play();
+                m_gunCooldown = SettingsManager.Inst.m_gunCooldown;
             }
         }
 
-
+        // Turret management
         if (Input.GetButtonDown("Fire2"))
         {
+            // Turret placement
             if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
             {
                 PlatformeFace selectedPlatforme = m_currentInteractiveObject.GetComponent<PlatformeFace>();
@@ -173,7 +166,8 @@ public class ONEPlayerInteraction : MonoBehaviour
                     }
                 }
             }
-            //Upgrade turret
+
+            // Upgrade turret
             if (m_currentInteractiveObject && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret"))
             {
                 GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
@@ -191,7 +185,6 @@ public class ONEPlayerInteraction : MonoBehaviour
                     {
                         m_ErrorSound.Play();
                     }
-                    
                 }
             }
         }
@@ -231,6 +224,7 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
         }
     }
+
     /********  OUR MESSAGES     ************************/
 
     /********  PUBLIC           ************************/

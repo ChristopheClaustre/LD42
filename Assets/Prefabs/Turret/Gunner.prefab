@@ -123,6 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4345622687989014}
   - component: {fileID: 198528841923293056}
+  - component: {fileID: 114393079995733036}
   - component: {fileID: 199195273259271774}
   m_Layer: 0
   m_Name: Pew
@@ -2270,6 +2271,18 @@ MonoBehaviour:
   m_canon: {fileID: 1190988340197906}
   m_pewSound: {fileID: 82053478089594170}
   m_pew: {fileID: 198528841923293056}
+--- !u!114 &114393079995733036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1180598146700584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a38a6af5994a6f4382293c48087a7d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_damage: 0
 --- !u!114 &114439329765224192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -15308,7 +15321,7 @@ ParticleSystem:
     maxCollisionShapes: 8
     quality: 0
     voxelSize: 0.5
-    collisionMessages: 0
+    collisionMessages: 1
     collidesWithDynamic: 1
     interiorCollisions: 0
   TriggerModule:
