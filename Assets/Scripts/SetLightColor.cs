@@ -57,7 +57,9 @@ public class SetLightColor :
     private void SetColor(Color p_color)
     {
         m_light.color = p_color;
+#pragma warning disable CS0618 // Le type ou le membre est obsolète
         m_particle.startColor = p_color;
+#pragma warning restore CS0618 // Le type ou le membre est obsolète
     }
 
     #endregion
