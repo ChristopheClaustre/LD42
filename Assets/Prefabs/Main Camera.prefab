@@ -529,7 +529,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 311
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1200,6 +1200,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ResourceCostText: {fileID: 114566106681121306}
   m_towel: {fileID: 1130511896158956}
+  m_cameraSensor: {fileID: 114582640673928938}
 --- !u!114 &114096869951861294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1369,6 +1370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c16e4fee73596da4d9f72abcfc46ed54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_lastHittedObject: {fileID: 0}
+  m_kind: 0
 --- !u!114 &114588979774660840
 MonoBehaviour:
   m_ObjectHideFlags: 1

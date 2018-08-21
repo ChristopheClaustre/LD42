@@ -18,6 +18,7 @@ public class ResourceCostDisplay : MonoBehaviour
 
     public Text m_ResourceCostText;
     public GameObject m_towel;
+    public CameraSensor m_cameraSensor;
 
 
     #endregion
@@ -37,8 +38,7 @@ public class ResourceCostDisplay : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        GameObject currentObject = ONEPlayerInteraction.Instance.CurrentInteractiveObject;
-        if (currentObject && currentObject.tag == "PlatformeFace")
+        if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.PlateformFace)
         {
             GameObject newTurret = m_towel.GetComponent<TurretSelector>().GetRealTurret;
             if (newTurret.transform.GetComponent<Turret>())
@@ -47,13 +47,13 @@ public class ResourceCostDisplay : MonoBehaviour
                 m_ResourceCostText.text = "-" + cost.ToString();
             }
         }
-        else if (currentObject && (currentObject.tag == "TpTurret" || currentObject.tag == "Turret"))
+        else if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.Turret)
         {
-            currentObject = currentObject.transform.parent.gameObject;
-            int turretLevel = currentObject.transform.GetComponent<Turret>().GetCurrentLevel();
-            if(turretLevel < currentObject.transform.GetComponent<Turret>().MaxLevel())
+            Turret turret = m_cameraSensor.m_lastHittedObject.GetComponent<Turret>();
+
+            if (turret.GetCurrentLevel() < turret.MaxLevel())
             {
-                int cost = currentObject.transform.GetComponent<Turret>().NextLevelCost(turretLevel);
+                int cost = turret.NextLevelCost(turret.GetCurrentLevel());
 
                 m_ResourceCostText.text = "-" + cost.ToString();
             }

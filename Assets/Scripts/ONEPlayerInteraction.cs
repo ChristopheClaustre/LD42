@@ -26,18 +26,6 @@ public class ONEPlayerInteraction : MonoBehaviour
         }
     }
 
-    public GameObject CurrentInteractiveObject
-    {
-        get
-        {
-            return m_currentInteractiveObject;
-        }
-        set
-        {
-            m_currentInteractiveObject = value;
-        }
-    }
-
     #endregion
     #region Attributes
     /***************************************************/
@@ -45,12 +33,13 @@ public class ONEPlayerInteraction : MonoBehaviour
     /***************************************************/
     private static ONEPlayerInteraction m_instance = null;
     
-    private GameObject m_currentInteractiveObject;
     private Transform m_turretSelector;
     private int m_selectedTower;
     private float m_gunCooldown = 0;
 
     private int m_gameStateUi;
+
+    private CameraSensor m_cameraSensor;
 
     [SerializeField]
     private AudioSource m_ErrorSound;
@@ -75,6 +64,8 @@ public class ONEPlayerInteraction : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        m_cameraSensor = GetComponent<CameraSensor>();
+
         m_turretSelector = transform.Find("T.O.W.E.L");
 
         m_pew.GetComponent<InflictDamageParticle>().m_damage = SettingsManager.Inst.m_gunDamage;
@@ -89,37 +80,27 @@ public class ONEPlayerInteraction : MonoBehaviour
         // gun cooldown
         m_gunCooldown -= Time.deltaTime;
 
-        if (m_currentInteractiveObject 
-            && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret")
-            && ((m_currentInteractiveObject.transform.position - transform.position).magnitude < 2.0f)
-            )
+        // display pluzicatore
+        if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.Turret)
         {
-            GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
-            int turretLevel = currentTurret.transform.GetComponent<Turret>().GetCurrentLevel();
-            if (turretLevel < currentTurret.transform.GetComponent<Turret>().MaxLevel())
-            {
-                m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = true;
-            }
-            else
-            {
-                m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = false;
-            }
+            Turret turret = m_cameraSensor.m_lastHittedObject.GetComponent<Turret>();
+            m_turretSelector.GetComponent<TurretSelector>().ActiveUpgrader = turret.GetCurrentLevel() < turret.MaxLevel();
         }
         else
         {
-            m_turretSelector.gameObject.GetComponent<TurretSelector>().ActiveUpgrader = false;
+            m_turretSelector.GetComponent<TurretSelector>().ActiveUpgrader = false;
         }
 
         // TP to turret
         if (Input.GetButtonDown("Fire1"))
         {
-            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "TpTurret")
+            if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.TpTurret)
             {
-                var teleporter = m_currentInteractiveObject.transform.parent.gameObject.GetComponent<Teleporter>();
+                Teleporter teleporter = m_cameraSensor.m_lastHittedObject.GetComponent<Teleporter>();
                 if (teleporter.TurretState == Turret.State.CanShoot)
                 {
-                    Vector3 deplacement = m_currentInteractiveObject.transform.position - transform.position;
-                    deplacement = deplacement.normalized * (deplacement.magnitude - 2);
+                    Vector3 deplacement = m_cameraSensor.m_lastHittedObject.transform.position - transform.position;
+                    deplacement = deplacement.normalized * (deplacement.magnitude - 3);
                     transform.position = transform.position + deplacement;
 
                     // reset cooldown
@@ -134,7 +115,7 @@ public class ONEPlayerInteraction : MonoBehaviour
         }
 
         // shoot with gun
-        if (Input.GetButton("Fire1"))
+        if (Input.GetButton("Fire1") && m_cameraSensor.m_kind != CameraSensor.ObjectHitted.TpTurret)
         {
             if (m_gunCooldown <= 0)
             {
@@ -148,19 +129,20 @@ public class ONEPlayerInteraction : MonoBehaviour
         if (Input.GetButtonDown("Fire2"))
         {
             // Turret placement
-            if (m_currentInteractiveObject && m_currentInteractiveObject.tag == "PlatformeFace")
+            if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.PlateformFace)
             {
-                PlatformeFace selectedPlatforme = m_currentInteractiveObject.GetComponent<PlatformeFace>();
+                PlatformeFace selectedPlatforme = m_cameraSensor.m_lastHittedObject.GetComponent<PlatformeFace>();
                 if (selectedPlatforme)
                 {
-                    GameObject newTurret = m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret;
-                    if(newTurret.transform.GetComponent<Turret>())
+                    GameObject newTurret = m_turretSelector.GetComponent<TurretSelector>().GetRealTurret;
+
+                    if (newTurret.transform.GetComponent<Turret>())
                     {
-                        int cost = newTurret.transform.GetComponent<Turret>().FirstLevelCost();
+                        int cost = newTurret.GetComponent<Turret>().FirstLevelCost();
                         if (cost <= GameManager.Inst.Resource)
                         {
                             GameManager.Inst.RemoveResources(cost);
-                            selectedPlatforme.ConstructTurret(m_turretSelector.gameObject.GetComponent<TurretSelector>().GetRealTurret);
+                            selectedPlatforme.ConstructTurret(m_turretSelector.GetComponent<TurretSelector>().GetRealTurret);
                         }
                         else
                         {
@@ -171,35 +153,31 @@ public class ONEPlayerInteraction : MonoBehaviour
             }
 
             // Upgrade turret
-            if (m_currentInteractiveObject && (m_currentInteractiveObject.tag == "TpTurret" || m_currentInteractiveObject.tag == "Turret"))
+            if (m_cameraSensor.m_kind == CameraSensor.ObjectHitted.Turret)
             {
-                GameObject currentTurret = m_currentInteractiveObject.transform.parent.gameObject;
-                if ((currentTurret.transform.position - transform.position).magnitude < 2.0f)
+                Turret turret = m_cameraSensor.m_lastHittedObject.GetComponent<Turret>();
+                int cost = turret.NextLevelCost(turret.GetCurrentLevel());
+
+                if (cost <= GameManager.Inst.Resource && turret.GetCurrentLevel() < turret.MaxLevel())
                 {
-                    int turretLevel = currentTurret.transform.GetComponent<Turret>().GetCurrentLevel();
-                    int cost = currentTurret.transform.GetComponent<Turret>().NextLevelCost(turretLevel);
-                    if (cost <= GameManager.Inst.Resource
-                        && turretLevel < currentTurret.transform.GetComponent<Turret>().MaxLevel())
-                    {
-                        GameManager.Inst.RemoveResources(cost);
-                        currentTurret.transform.GetComponent<Turret>().NextLevel();
-                    }
-                    else
-                    {
-                        m_ErrorSound.Play();
-                    }
+                    GameManager.Inst.RemoveResources(cost);
+                    turret.NextLevel();
+                }
+                else
+                {
+                    m_ErrorSound.Play();
                 }
             }
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") > 0f)
         {
-            m_turretSelector.gameObject.GetComponent<TurretSelector>().NextTurret();
+            m_turretSelector.GetComponent<TurretSelector>().NextTurret();
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0f)
         {
-            m_turretSelector.gameObject.GetComponent<TurretSelector>().PreviousTurret();
+            m_turretSelector.GetComponent<TurretSelector>().PreviousTurret();
         }
 
         if (Input.GetButtonDown("Switch Game State"))
